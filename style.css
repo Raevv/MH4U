@@ -15,9 +15,9 @@
   --green: #5cc454;
   --whitegreen: #deffdb;
   --text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 3px black, 0 0 3px black;
-  --bg: url("/resources/images/blue_background.jpg");
-  --cursor: url("/resources/cursors/mhw_cursor.png"), auto;
-  --pointer: url("/resources/cursors/mhw_pointer.png"), auto;
+  --bg: url("./resources/images/blue_background.jpg");
+  --cursor: url("./resources/cursors/mhw_cursor.png"), auto;
+  --pointer: url("./resources/cursors/mhw_pointer.png"), auto;
 }
 
 body {
