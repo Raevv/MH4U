@@ -1,0 +1,306 @@
+@font-face {
+  font-family: "MHFont";
+  src: url("/resources/fonts/MHFont.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  
+  /* color palette */
+  --green: #5cc454;
+  --whitegreen: #deffdb;
+  --text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 3px black, 0 0 3px black;
+  --bg: url("/resources/images/blue_background.jpg");
+  --cursor: url("/resources/cursors/mhw_cursor.png"), auto;
+  --pointer: url("/resources/cursors/mhw_pointer.png"), auto;
+}
+
+body {
+  font-size: 1em;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  cursor: var(--cursor);
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  background-image: url("/resources/images/blue_background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  filter: brightness(60%) saturate(180%);
+  z-index: -1;
+}
+
+.menu_btn {
+  position: fixed;
+  top: 0;
+  right: 3em;
+  width: 15%;
+  aspect-ratio: 1/1.33;
+  background-image: var(--bg);
+  background-size: 400%;
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 40%;
+  filter: hue-rotate(150deg) brightness(70%) contrast(110%);
+  z-index: 100;
+}
+
+.menu_btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid blue;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transform-origin: center;
+  transform: scaleX(1.15) scaleY(1.1);
+}
+
+.landing {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.title {
+  font-family: "MHFont";
+  font-size: 4rem;
+  text-align: center;
+  align-self: center;
+  color: var(--whitegreen);
+  text-shadow: 0 0 0.25em var(--green), 0 0 0.25em var(--green), 0 0 0.05em rgba(0, 0, 0, 0.66);
+  width: max-content;
+  transform-style: preserve-3d;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  top: -33%;
+  left: -12.5%;
+  width: 125%;
+  aspect-ratio: 1/1;
+  background-image: url("/resources/images/mh4u_logo.png");
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  transform-origin: center;
+  transform: translateZ(-1px);
+  filter: grayscale(100%) brightness(0%);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  margin: 5em 0 0;
+  padding: 1em 0;
+  width: 80%;
+  max-width: 700px;
+  height: min-content;
+  transform: translateZ(-1px);
+  filter: drop-shadow(0px 0px 5px black);
+
+}
+
+.info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  transform-origin: center;
+  transform: scaleX(1.01) scaleY(1.1);
+  background-image: linear-gradient(90deg, rgba(153,135,78,1) 0%, rgba(230,219,173,1) 50%, rgba(153,135,78,1) 100%); ;
+  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+  
+}
+
+.info::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg);
+  background-size: 300%;
+  background-position-x: 100%;
+  filter: brightness(60%);
+  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
+}
+
+.info p {
+  color: white;
+  font-family: "Playfair Display";
+  font-weight: 500;
+  font-size: 0.9em;
+  text-align: center;
+  text-shadow: var(--text-shadow);
+  letter-spacing: 0.05em;
+  z-index: 1;
+}
+
+.info-content {
+  position: relative;
+  width: 80%;
+  background-color: rgba(0, 20, 50, 0.7);
+  margin: 2.5em 0;
+}
+
+.info-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 5px solid rgba(0, 20, 50, 0.8);
+  box-sizing: border-box;
+  transform-origin: center;
+  transform: scaleX(1.025) scaleY(1.3);
+}
+
+.info-content p {
+  margin: 1em 1.5em;
+  font-size: 0.75em;
+  color: white;
+  text-align: justify;
+}
+
+.info-content span {
+  color: #E6DBAD;
+}
+
+.sign-up {
+  position: relative;
+  width: calc(80% + 5px);
+  background: linear-gradient(135deg, rgba(232,61,36,1) 0%, rgba(234,120,50,1) 50%, rgba(232,61,36,1) 100%);
+  margin: 1em 0;
+  padding: 1em 0em;
+  transition: all 0.2s 0.1s ease-out;
+}
+
+.sign-up:hover {
+  cursor: var(--cursor);
+}
+
+.sign-up::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(230,60,35,1);
+  box-sizing: border-box;
+  transform-origin: center;
+  transform: scaleX(1.015) scaleY(1.2);
+  transition: all 0.2s ease-out;
+}
+
+.sign-up:hover::before {
+  transform: scaleX(1.03) scaleY(1.2);
+  border: 2px solid rgba(230, 60, 35, 1);
+} 
+
+.sign-up::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, transparent, rgba(255,255,255,0.3));
+  transform: scaleX(0) skew(30deg);
+}
+
+.sign-up:hover::after {
+  animation: sign-up 0.3s ease forwards;
+} 
+
+.sign-up p {
+  color: white;
+  font-weight: 700;
+  font-size: 1.2em;
+  text-align: center;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.66);
+}
+
+/* Animations */
+
+@keyframes sign-up {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 767px) {
+  
+ .menu_btn {
+   right: 1em;
+ }
+  
+  .menu_btn::before {
+    border: 1px solid blue;
+  }
+  
+  .landing {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+ .info::before, .info::after {
+    clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+ }
+ 
+  .info::before {
+    transform: scaleX(1.025) scaleY(1.1);
+  }
+  
+ .info-content::before {
+    transform: scaleX(1.066) scaleY(1.2);
+ }
+ 
+ .sign-up::before {
+    transform: scaleX(1.02) scaleY(1.1);
+ }
+}
