@@ -3,21 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css"> 
+ 
 
   <title>Relic Creator</title>
   
 </head>
 
 <body>
-  <div class="menu_btn" onclick="toggle_menu()"></div>
-  <div class="landing">
+  <div class="menu-btn" onclick="toggle_menu()"></div>
+  <nav class="menu">
     <h1 class="title">Relic<br>Creator</h1>
+    <ul>
+      <li><a href="">Relic Creator</a></li>
+      <li><a href="">Equipment Box</a></li>
+      <li><a href="">Account</a></li>
+    </ul>
+  </nav>
+  <div class="landing">
+    <h1 class="title">Welcome</h1>
     <div class="wrapper">
       <div class="info">
         <p>Information</p>
@@ -27,7 +37,7 @@
         <p>Here, you'll be able to create your own Relic and even fill your equipment box with anything you want</p>
       </div>
       <div class="sign-up">
-        <p>Sign Up</p>
+        <a href="/sign_up.html">Sign Up</a>
       </div> 
     </div>
   </div>

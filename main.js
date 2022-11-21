@@ -1,11 +1,14 @@
-const menu = document.querySelector(".menu_btn");
-let count = 0;
-let insultes = ["Salope", "Pute", "Chienne", "Ta mère c'est ton père", "T tout nul", "Si manette c'est pété viens manette et monte GM on va voir"]
+const menu = document.querySelector(".menu");
+let isOpen = false;
 
 function toggle_menu() {
-  console.log(insultes[count]);
-  count++;
-  if (count == insultes.length) {
-    count = 0;
+  if (!menu.classList.contains("is-open")) {
+    isOpen = true;
+    menu.classList.toggle("is-open", true);
+    console.log("Opened");
+  } else {
+    isOpen = false;
+    menu.classList.toggle("is-open", false);
+    console.log("Closed");
   }
 }
