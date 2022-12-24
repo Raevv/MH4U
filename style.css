@@ -11,18 +11,21 @@
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
   color: white;
+  font-size: calc(15px + 0.4vw);
   
   /* color palette */
   --green: #5cc454;
   --whitegreen: #deffdb;
+  --orange: rgba(230,60,35,1);
   --text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 3px black, 0 0 3px black;
   --bg: url("./resources/images/blue_background.jpg");
+  --blue-box: rgba(0, 20, 50, 0.7);
   --cursor: url("./resources/cursors/mhw_cursor.png"), auto;
   --pointer: url("./resources/cursors/mhw_pointer.png"), auto;
 }
 
 body {
-  font-size: 1em;
+  font-size: calc(15px + 0.390625vw);
   display: grid;
   place-items: center;
   width: 100vw;
@@ -103,6 +106,33 @@ body::before {
 
 .is-open {
   transform: translateX(0%);
+}
+
+.title {
+  font-family: "MHFont";
+  font-size: 4rem;
+  text-align: center;
+  align-self: center;
+  color: var(--whitegreen);
+  text-shadow: 0 0 0.25em var(--green), 0 0 0.25em var(--green), 0 0 0.05em rgba(0, 0, 0, 0.66);
+  width: max-content;
+  transform-style: preserve-3d;
+}
+
+.title::before {
+  content: "";
+  position: absolute;
+  top: -150%;
+  left: -12.5%;
+  width: 125%;
+  aspect-ratio: 1/1;
+  background-image: url("/resources/images/mh4u_logo.png");
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  transform-origin: center;
+  transform: translateZ(-1px);
+  filter: grayscale(100%) brightness(0%);
 }
 
 .menu ul {

@@ -84,7 +84,6 @@
   color: white;
   font-family: "Libre Baskerville";
   font-weight: 700;
-  font-size: 0.9em;
   text-align: center;
   text-shadow: var(--text-shadow);
   letter-spacing: 0.05em;
@@ -94,7 +93,7 @@
 .info-content {
   position: relative;
   width: 80%;
-  background-color: rgba(0, 20, 50, 0.7);
+  background-color: var(--blue-box);
   margin: 2.5em 0;
 }
 
@@ -113,7 +112,6 @@
 
 .info-content p {
   margin: 1em 1.5em;
-  font-size: 0.75em;
   color: white;
   text-align: justify;
 }
@@ -124,12 +122,11 @@
 
 .sign-up {
   position: relative;
-  width: calc(80% + 5px);
   background: linear-gradient(135deg, rgba(232,61,36,1) 0%, rgba(234,120,50,1) 50%, rgba(232,61,36,1) 100%);
   margin: 1em 0;
-  padding: 1em 0em;
   transition: all 0.2s 0.1s ease-out;
   text-align: center;
+  transform-style: preserve-3d;
 }
 
 .sign-up:hover {
@@ -143,15 +140,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 1px solid rgba(230,60,35,1);
+  border: 1px solid var(--orange);
   box-sizing: border-box;
   transform-origin: center;
-  transform: scaleX(1.015) scaleY(1.2);
+  transform: scaleX(1.015) scaleY(1.2) translateZ(-1px);
   transition: all 0.2s ease-out;
 }
 
 .sign-up:hover::before {
-  transform: scaleX(1.03) scaleY(1.2);
+  transform: scaleX(1.03) scaleY(1.2) translateZ(-1px);
   border: 2px solid rgba(230, 60, 35, 1);
 } 
 
@@ -163,7 +160,7 @@
   width: 100%;
   height: 100%;
   background-image: linear-gradient(to right, transparent, rgba(255,255,255,0.3));
-  transform: scaleX(0) skew(30deg);
+  transform: scaleX(0) skew(30deg) translateZ(-1px);
 }
 
 .sign-up:hover::after {
@@ -171,6 +168,9 @@
 } 
 
 .sign-up a {
+  display: block;
+  width: clamp(100px, 80vw, 500px);
+  padding: 0.75em 0;
   color: white;
   font-weight: 700;
   font-size: 1.2em;
@@ -213,7 +213,7 @@
   }
   
   .info-content::before {
-    transform: scaleX(1.066) scaleY(1.2);
+    transform: scaleX(1.066) scaleY(1.12);
  }
  
   .sign-up::before {
