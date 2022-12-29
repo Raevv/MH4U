@@ -18,18 +18,15 @@
   --whitegreen: #deffdb;
   --orange: rgba(230,60,35,1);
   --text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 3px black, 0 0 3px black;
-  --bg: url("./resources/images/blue_background.jpg");
+  --bg: url('./resources/images/blue_background.jpg');
   --blue-box: rgba(0, 20, 50, 0.7);
-  --cursor: url("./resources/cursors/mhw_cursor.png"), auto;
-  --pointer: url("./resources/cursors/mhw_pointer.png"), auto;
+  --cursor: url('./resources/cursors/mhw_cursor.png'), auto;
+  --pointer: url('./resources/cursors/mhw_pointer.png'), auto;
+  --logo: url('./resources/images/mh4u_logo.png');
 }
 
 body {
   font-size: calc(15px + 0.390625vw);
-  display: grid;
-  place-items: center;
-  width: 100vw;
-  height: 100vh;
   cursor: var(--cursor);
 }
 
@@ -40,7 +37,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("./resources/images/blue_background.jpg");
+  background-image: var(--bg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: 100%;
@@ -49,90 +46,66 @@ body::before {
 }
 
 .menu-btn {
-  position: fixed;
+  position: absolute;
   top: 0;
-  right: 3em;
-  width: 15%;
-  aspect-ratio: 1/1.33;
-  background-image: var(--bg);
-  background-size: 400%;
-  background-repeat: no-repeat;
-  background-position-x: 100%;
-  background-position-y: 40%;
-  filter: hue-rotate(150deg) brightness(70%) contrast(110%);
-  z-index: 100;
+  right: 40px;
+  width: 80px;
+  height: 100px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 10px;
+  align-items: center;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease;
+}
+
+.menu-btn:hover {
+  cursor: var(--pointer);
+  color: gold;
 }
 
 .menu-btn::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid blue;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  transform-origin: center;
-  transform: scaleX(1.15) scaleY(1.1);
+  background-image: var(--bg);
+  background-size: 300%;
+  background-position-x: 100%;
+  filter: hue-rotate(150deg) saturate(1.5) brightness(66%);
+  z-index: -1;
+}
+
+.menu-btn::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  background-image: var(--logo);
+  background-size: 60px;
+  background-repeat: no-repeat;
+  filter: brightness(500%);
 }
 
 .menu {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 2;
-  transform: translateX(100%);
-  transition: all 0.5s ease;
-}
-
-.menu::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #082668;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 200 200'%3E%3Cg %3E%3Cpolygon fill='%23001441' points='100 57.1 64 93.1 71.5 100.6 100 72.1'/%3E%3Cpolygon fill='%23001745' points='100 57.1 100 72.1 128.6 100.6 136.1 93.1'/%3E%3Cpolygon fill='%23001441' points='100 163.2 100 178.2 170.7 107.5 170.8 92.4'/%3E%3Cpolygon fill='%23001745' points='100 163.2 29.2 92.5 29.2 107.5 100 178.2'/%3E%3Cpath fill='%23031A49' d='M100 21.8L29.2 92.5l70.7 70.7l70.7-70.7L100 21.8z M100 127.9L64.6 92.5L100 57.1l35.4 35.4L100 127.9z'/%3E%3Cpolygon fill='%23001441' points='0 157.1 0 172.1 28.6 200.6 36.1 193.1'/%3E%3Cpolygon fill='%23001745' points='70.7 200 70.8 192.4 63.2 200'/%3E%3Cpolygon fill='%23031A49' points='27.8 200 63.2 200 70.7 192.5 0 121.8 0 157.2 35.3 192.5'/%3E%3Cpolygon fill='%23001745' points='200 157.1 164 193.1 171.5 200.6 200 172.1'/%3E%3Cpolygon fill='%23001441' points='136.7 200 129.2 192.5 129.2 200'/%3E%3Cpolygon fill='%23031A49' points='172.1 200 164.6 192.5 200 157.1 200 157.2 200 121.8 200 121.8 129.2 192.5 136.7 200'/%3E%3Cpolygon fill='%23001441' points='129.2 0 129.2 7.5 200 78.2 200 63.2 136.7 0'/%3E%3Cpolygon fill='%23031A49' points='200 27.8 200 27.9 172.1 0 136.7 0 200 63.2 200 63.2'/%3E%3Cpolygon fill='%23001745' points='63.2 0 0 63.2 0 78.2 70.7 7.5 70.7 0'/%3E%3Cpolygon fill='%23031A49' points='0 63.2 63.2 0 27.8 0 0 27.8'/%3E%3C/g%3E%3C/svg%3E");
-}
-
-.is-open {
-  transform: translateX(0%);
-}
-
-.title {
-  font-family: "MHFont";
-  font-size: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  align-self: center;
-  color: var(--whitegreen);
-  text-shadow: 0 0 0.25em var(--green), 0 0 0.25em var(--green), 0 0 0.05em rgba(0, 0, 0, 0.66);
-  width: max-content;
-  transform-style: preserve-3d;
-}
-
-.title::before {
-  content: "";
-  position: absolute;
-  top: -150%;
-  left: -12.5%;
-  width: 125%;
-  aspect-ratio: 1/1;
-  background-image: url("/resources/images/mh4u_logo.png");
-  background-size: cover;
-  background-position: center;
-  margin: 0 auto;
-  transform-origin: center;
-  transform: translateZ(-1px);
-  filter: grayscale(100%) brightness(0%);
+  justify-content: space-around;
+  background-color: red;
 }
 
 .menu ul {
@@ -141,58 +114,11 @@ body::before {
   align-items: center;
   text-align: center;
   justify-content: space-around;
-  width: 100%;
-  height: 10em;
-  z-index: 3;
-  backdrop-filter: brightness(0.8) contrast(1.2);
+  width: 100vw;
+  height: 100vh;
 }
 
-.menu a {
-  padding: 1em 1.5em;
-  position: relative;
-  font-family: "Libre Baskerville";
-  font-weight: 700;
-  text-shadow: var(--text-shadow);
-}
-
-.menu a::before {
-  content: "";
-  position: absolute;
-  top: 40%;
-  left: -20%;
-  height: 25%;
-  width: 25%;
-  background-image: url("./resources/images/arrow.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0;
-  transition: all 0.2s ease;
-}
-
-.menu a:hover::before {
-  opacity: 1;
-  left: -10%;
-}
-
-.menu .title {
-  margin: 1em;
-  font-size: 2rem;
-}
-
-.menu .title::before {
-  width: 100%;
-  top: -20%;
-  left: 0;
-}
-
-@media screen and (max-width: 767px) {
-  
-  .menu-btn {
-   right: 1em;
-  }
-  
-  .menu-btn::before {
-    border: 1px solid blue;
-  }
-
+.menu ul li {
+  padding: 1em 2em;
+  background-color: blue;
 }
