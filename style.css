@@ -8,7 +8,7 @@
   padding: 0;
   text-decoration: none;
   list-style-type: none;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins';
   font-weight: 500;
   color: white;
   font-size: calc(15px + 0.4vw);
@@ -149,6 +149,8 @@ body::before {
   transition-delay: calc(0.1s + 0.05s * var(--i)), calc(0.1s + 0.05s * var(--i)), 0s;
   margin-left: -35px;
   opacity: 0;
+  text-transform: uppercase;
+  font-family: 'Poppins';
 }
 
 .menu ul li a:hover {
