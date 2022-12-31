@@ -126,8 +126,10 @@ body::before {
   align-items: center;
   text-align: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 20%;
+  height: max-content;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .menu ul li {
@@ -138,14 +140,14 @@ body::before {
 
 .menu ul li a {
   display: flex;
-  width: 25%;
+  width: 100%;
   padding: 0.5em 0;
   margin: 0.5em;
   transition-property: opacity, margin-left, color;
-  transition-duration: 0.2s, 0.25s, 0.2s;
+  transition-duration: 0.2s, 0.25s, 0.1s;
   transition-timing-function: ease;
-  transition-delay: calc(0.1s + 0.1s * var(--i)), calc(0.1s + 0.1s * var(--i)), 0s;
-  margin-left: -100px;
+  transition-delay: calc(0.1s + 0.05s * var(--i)), calc(0.1s + 0.05s * var(--i)), 0s;
+  margin-left: -35px;
   opacity: 0;
 }
 
