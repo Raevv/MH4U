@@ -18,18 +18,18 @@
   --whitegreen: #deffdb;
   --orange: rgba(230,60,35,1);
   --text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 3px black, 0 0 3px black;
-  --bg: url('./resources/images/blue_background.jpg');
+  --bg: url('/resources/images/blue_background.jpg');
   --blue-box: rgba(0, 20, 50, 0.7);
-  --cursor: url('./resources/cursors/mhw_cursor.png'), auto;
-  --pointer: url('./resources/cursors/mhw_pointer.png'), auto;
-  --logo: url('./resources/images/mh4u_logo.png');
+  --cursor: url('/resources/cursors/mhw_cursor.png'), auto;
+  --pointer: url('/resources/cursors/mhw_pointer.png'), auto;
+  --logo: url('/resources/images/mh4u_logo.png');
 }
 
 body {
   font-size: calc(15px + 0.390625vw);
   display: flex;
   flex-direction: column;
-  height: clamp(100vh, max-content, max-content);
+  height: 100%;
   background: blue;
 }
 
@@ -158,7 +158,7 @@ body::before {
   font-family: 'Poppins';
 }
 
-.menu ul li a:hover {
+.menu ul li a:stylehover {
   cursor: pointerS;
   color: gold;
 }
