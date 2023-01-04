@@ -1,3 +1,5 @@
+@use "../abstracts/colors";
+
 .title-wrapper {
   display: flex;
   width: 100vw;
@@ -44,16 +46,16 @@
 .title .sign-up:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.33);
-  border-color: gold;
-  color: gold;
+  border-color: colors.$gold;
+  color: colors.$gold;
 }
 
 .title .sign-up:hover::before {
-  border-color: gold;
+  border-color: colors.$gold;
 }
 
 .title .sign-up:hover::after {
-  border-color: gold;
+  border-color: colors.$gold;
 }
 
 
