@@ -2,7 +2,7 @@
 @use "../abstracts/assets";
 
 .menu-btn {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 40px;
     width: 80px;
@@ -18,105 +18,105 @@
     transition: all 0.25s ease;
     z-index: 100;
     user-select: none;
+
+    &:hover {
+      cursor: pointer;
+      color: colors.$gold;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: assets.$bg;
+      background-size: 300%;
+      background-position-x: 100%;
+      filter: hue-rotate(150deg) saturate(0.85) brightness(75%);
+      z-index: -1;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100%;
+      height: 100%;
+      background-image: assets.$logo;
+      background-size: 60px;
+      background-repeat: no-repeat;
+      filter: brightness(500%);  
+    }
   }
-  
-  .menu-btn:hover {
-    cursor: pointer;
-    color: colors.$gold;
-  }
-  
-  .menu-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: assets.$bg;
-    background-size: 300%;
-    background-position-x: 100%;
-    filter: hue-rotate(150deg) saturate(0.85) brightness(75%);
-    z-index: -1;
-  }
-  
-  .menu-btn::after {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 100%;
-    height: 100%;
-    background-image: assets.$logo;
-    background-size: 60px;
-    background-repeat: no-repeat;
-    filter: brightness(500%);
-  }
-  
-  .menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(15px) brightness(0.25);
+  -webkit-backdrop-filter: blur(15px) brightness(0.25);
+  z-index: 99;
+
+  ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     justify-content: center;
-    visibility: hidden;
-    pointer-events: none;
-    opacity: 0;
-    transition: all 0.2s ease;
-    backdrop-filter: blur(15px) brightness(0.25);
-    -webkit-backdrop-filter: blur(15px) brightness(0.25);
-    z-index: 99;
-  }
-  
-  .open-menu {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
-  
-  .menu ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    width: 20%;
+    width: clamp(200px, 20%, 500px);
     height: max-content;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+
+    li {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+
+      a {
+        display: flex;
+        width: 100%;
+        padding: 0.5em 0;
+        margin: 0.5em;
+        transition-property: opacity, margin-left, color;
+        transition-duration: 0.2s, 0.25s, 0.1s;
+        transition-timing-function: ease;
+        transition-delay: calc(0.1s + 0.05s * var(--i)), calc(0.1s + 0.05s * var(--i)), 0s;
+        margin-left: -35px;
+        opacity: 0;
+        text-transform: uppercase;
+        font-family: 'Poppins';
+
+        &:hover {
+          cursor: pointer;
+          color: colors.$gold;
+        }
+      }
+    }
   }
-  
-  .menu ul li {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .menu ul li a {
-    display: flex;
-    width: 100%;
-    padding: 0.5em 0;
-    margin: 0.5em;
-    transition-property: opacity, margin-left, color;
-    transition-duration: 0.2s, 0.25s, 0.1s;
-    transition-timing-function: ease;
-    transition-delay: calc(0.1s + 0.05s * var(--i)), calc(0.1s + 0.05s * var(--i)), 0s;
-    margin-left: -35px;
-    opacity: 0;
-    text-transform: uppercase;
-    font-family: 'Poppins';
-  }
-  
-  .menu ul li a:stylehover {
-    cursor: pointerS;
-    color: colors.$gold;
-  }
-  
-  .show-text {
-    opacity: 1 !important;
-    margin-left: 0 !important;
-  }
+}
+
+.open-menu {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.show-text {
+  opacity: 1 !important;
+  margin-left: 0 !important;
+}

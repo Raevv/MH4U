@@ -15,72 +15,71 @@
   background-color: #130D0C;
   align-self: center;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.66);
+
+    h1 {
+      font-size: 4rem;
+      font-family: 'Rubik';
+      transform: skewX(-10deg);
+      -webkit-transform: skewX(-10deg);
+      margin: 1rem 0 0 1.5rem;  
+    }
+
+    p {
+      justify-self: flex-start;
+      width: 75%;
+      margin: 1rem 0 0 1.5rem;  
+    }
+
+    .sign-up {
+      position: relative;
+      align-self: flex-end;
+      margin-top: 1.8rem;
+      margin-right: calc(10vw + 1.5rem);
+      padding: 0.5rem 1.5rem;
+      font-weight: 300;
+      border: 1px solid white;
+      background-color: rgba(255, 255, 255, 0);
+      transition: all 0.2s ease;
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgba(0, 0, 0, 0.33);
+          border-color: colors.$gold;
+
+            &::before {
+              border-color: colors.$gold;
+            }
+            &::after {
+              border-color: colors.$gold;
+            }
+            a {
+              color: colors.$gold;
+            }
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 3px;
+          left: 3px;
+          width: 7px;
+          height: 7px;
+          border-top: 1px solid white;
+          border-left: 1px solid white;    
+        }
+
+        &::after {  
+          content: '';
+          position: absolute;
+          bottom: 3px;
+          right: 3px;
+          width: 7px;
+          height: 7px;
+          border-bottom: 1px solid white;
+          border-right: 1px solid white;    
+        }
+    }
 }
-
-.title h1 {
-  font-size: 4rem;
-  font-family: 'Rubik';
-  transform: skewX(-10deg);
-  -webkit-transform: skewX(-10deg);
-  margin: 1rem 0 0 1.5rem;
-}
-
-.title p {
-  justify-self: flex-start;
-  width: 75%;
-  margin: 1rem 0 0 1.5rem;
-}
-
-.title .sign-up {
-  position: relative;
-  align-self: flex-end;
-  margin-top: 1.8rem;
-  margin-right: calc(10vw + 1.5rem);
-  padding: 0.5rem 1.5rem;
-  font-weight: 300;
-  border: 1px solid white;
-  background-color: rgba(255, 255, 255, 0);
-  transition: all 0.2s ease;
-}
-
-.title .sign-up:hover {
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.33);
-  border-color: colors.$gold;
-  color: colors.$gold;
-}
-
-.title .sign-up:hover::before {
-  border-color: colors.$gold;
-}
-
-.title .sign-up:hover::after {
-  border-color: colors.$gold;
-}
-
-
-.title .sign-up::before {
-  content: '';
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 7px;
-  height: 7px;
-  border-top: 1px solid white;
-  border-left: 1px solid white;
-}
-
-.title .sign-up::after {
-  content: '';
-  position: absolute;
-  bottom: 3px;
-  right: 3px;
-  width: 7px;
-  height: 7px;
-  border-bottom: 1px solid white;
-  border-right: 1px solid white;
-}
-
 
 .intro {
   display: flex;
@@ -94,9 +93,9 @@
   background-image: url('/resources/images/bg_brown.jpg');
   align-self: center;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.66);
-}
 
-.intro h1 {
-  margin: 1rem 0 0 1.5rem;
-  width: 75%;
+  h1 {
+    margin: 1rem 0 0 1.5rem;
+    width: 75%;
+  }
 }
