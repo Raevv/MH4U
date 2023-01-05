@@ -1,4 +1,5 @@
 @use "../abstracts/colors";
+@use "../abstracts/assets";
 
 .title-wrapper {
   display: flex;
@@ -90,7 +91,7 @@
   align-items: flex-start;
   width: 55vw;
   height: 350px;
-  background-image: url('/resources/images/bg_brown.jpg');
+  background-image: assets.$bg-brown;
   align-self: center;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.66);
 
