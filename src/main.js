@@ -15,3 +15,12 @@ function open_menu() {
             anchors.forEach(link => link.classList.toggle('show-text', false));
         }
 }
+
+inputs = document.querySelectorAll('input');
+['focusin', 'focusout'].forEach(evt => addEventListener(evt, function activeState(event) {
+    if (!event.target.value) {
+        event.target.previousElementSibling.classList.toggle('focus');
+    } else {
+        event.target.previousElementSibling.classList.toggle('focus', true);
+    }
+}))
