@@ -16,7 +16,6 @@ function open_menu() {
         }
 }
 
-inputs = document.querySelectorAll('input');
 ['focusin', 'focusout'].forEach(evt => addEventListener(evt, function activeState(event) {
     if (!event.target.value) {
         event.target.previousElementSibling.classList.toggle('focus');
