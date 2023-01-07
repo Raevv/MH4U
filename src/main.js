@@ -23,3 +23,25 @@ function open_menu() {
         event.target.previousElementSibling.classList.toggle('focus', true);
     }
 }))
+
+function goToLogin() {
+    logIn = document.querySelector('.log-in-form');
+    signUp = document.querySelector('.sign-up-form');
+    if (!logIn.classList.contains('form-display-visible')) {
+        logIn.classList.add('form-display-visible');
+        logIn.classList.remove('.form-display-none');
+        signUp.classList.add('form-display-none');
+        signUp.classList.remove('form-display-visible')
+    }
+}
+
+function goToSignUp() {
+    logIn = document.querySelector('.log-in-form');
+    signUp = document.querySelector('.sign-up-form');
+    if (!signUp.classList.contains('form-display-visible')) {
+        signUp.classList.add('form-display-visible');
+        signUp.classList.remove('.form-display-none');
+        logIn.classList.add('form-display-none');
+        logIn.classList.remove('form-display-visible')
+    }
+}

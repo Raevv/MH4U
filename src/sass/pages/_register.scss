@@ -9,10 +9,11 @@ body {
     height: 100vh;
 }
 
-form {
+.sign-up-form, .log-in-form{
     display: flex;
     flex-direction: column;
     height: 80vh;
+    min-height: max-content;
     min-height: 350px;
     aspect-ratio: 1/1;
     justify-content: flex-end;
@@ -20,6 +21,23 @@ form {
     align-items: center;
     border-radius: 2px;
     box-shadow: 0px 0px 10px black;
+
+    input {
+        background: colors.$darkbrown;
+        color: white;
+        border: none;
+        outline: 1px solid grey;
+        height: 2rem;
+        margin-top: 35px;
+        width: calc(100% - 20px);
+        padding: 0 10px;
+        border-radius: 1px;
+        transition: all 0.2s ease;
+
+        &:focus {
+            outline: 1px solid colors.$gold;
+        }
+    }
 
     .change-form {
         display: flex;
@@ -38,25 +56,10 @@ form {
             user-select: none;
         }
 
-        .log-in {
-            color: lightgray;
-            transition: all 0.2s ease;
-
-            &:hover {
-                color: white;
-                cursor: pointer;
-            }
-        }
-
-        .sign-up {
-            background-color: colors.$darkbrown;
-            height: calc(3em + 10px);
-            box-shadow: 0px 0px 5px colors.$shadow;
-        }
     }
 
     p {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         margin-top: 10px;
         margin-bottom: -10px;
     }
@@ -67,10 +70,20 @@ form {
         flex-wrap: wrap;
         justify-content: center;
         align-items: flex-start;
+        position: relative;
+
+        & > * {
+            position: relative;
+        }
 
         .usr-wrap {
             width: 40%;
             margin-right: 20px;
+
+            &.login {
+                width: calc(80% + 20px);
+                margin: 0;
+            }
         }
 
         .nick-wrap{
@@ -87,7 +100,6 @@ form {
 
         label {
             position: absolute;
-            transform: translate(20px, 40px);
             user-select: none;
             pointer-events: none;
             color: grey;
@@ -98,25 +110,7 @@ form {
         .focus {
             color: colors.$gold;
             font-size: 0.75em;
-            transform: translate(0px, 10px);
             transition: all 0.2s ease;
-        }
-
-        input {
-            background: colors.$darkbrown;
-            color: white;
-            border: none;
-            outline: 1px solid grey;
-            height: 2rem;
-            margin-top: 35px;
-            width: calc(100% - 40px);
-            padding: 0 20px;
-            border-radius: 1px;
-            transition: all 0.2s ease;
-
-            &:focus {
-                outline: 1px solid colors.$gold;
-            }
         }
 
         .register-btn {
@@ -126,11 +120,111 @@ form {
             text-align: center;
             border-radius: 2px;
             background: colors.$darkbrown;
-            margin-top: 1em;
-            margin-bottom: 1.5em;
             user-select: none;
             cursor: pointer;
             @include mixins.hover_transition;
         }
     }
+}
+
+.sign-up-form {
+
+    label {
+        top: 40px;
+        left: 15px;
+    }
+
+    .focus {
+        transform: translate(-15px, -30px);
+    }
+
+    .log-in {
+        color: lightgray;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: white;
+            cursor: pointer;
+        }
+    }
+
+    .sign-up {
+        background-color: colors.$darkbrown;
+        height: calc(3em + 10px);
+        box-shadow: 0px 0px 5px colors.$shadow;
+    }
+
+    .register-btn {
+        margin-top: 1em;
+        margin-bottom: 1.5em;
+    }
+}
+
+.log-in-form {
+    .change-form {
+        * {
+            margin-top: -120px;
+        }
+    }
+    
+    .sign-up {
+        color: lightgray;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: white;
+            cursor: pointer;
+        }
+    }
+
+    .log-in {
+        background-color: colors.$darkbrown;
+        height: calc(3em + 10px);
+        box-shadow: 0px 0px 5px colors.$shadow;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    label {
+        top: 40px;
+        left: 20px;
+    }
+
+    .focus {
+        transform: translate(-20px, -30px);
+    }
+
+    .register-btn {
+        margin-top: 2em;
+        margin-bottom: 1.5em;
+    }
+}
+
+.form-display-none {
+    display: none;
+    animation-name: disappear;
+    animation-duration: 0.33s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+.form-display-visible {
+    display: flex;
+    animation-name: appear;
+    animation-duration: 0.33s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+    0% {display: none; opacity: 0;}
+    1% {display: flex;}
+    100% {opacity: 1;}    99% {display: none;}
+}
+
+@keyframes disappear {
+    0% {display: flex; opacity: 1;}
+    100% {display: none; opacity: 0;}
 }

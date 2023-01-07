@@ -16,7 +16,7 @@
 
 <body>
   <div class="menu-btn" onclick="open_menu()">Menu</div>
-  <div class="menu">
+  <div class="menu" onclick="open_menu()">
     <ul>
       <li><a href="index.html" style="--i:1;">Home</a></li>
       <li><a href="" style="--i:2;">Introduction</a></li>
@@ -27,9 +27,9 @@
     </ul>
   </div>
 
-  <form action="">
+  <form action="" class="sign-up-form">
     <div class="change-form">
-      <div class="log-in">Log in</div>
+      <div class="log-in" onclick="goToLogin()">Log in</div>
       <div class="sign-up">Sign up</div>
     </div>
     
@@ -58,6 +58,30 @@
       <div class="register-btn">Register</div>
     </div>
   </form>
+
+  <form action="" class="log-in-form form-display-none">
+    <div class="change-form">
+      <div class="log-in">Log in</div>
+      <div class="sign-up" onclick="goToSignUp()">Sign up</div>
+    </div>
+    
+    <p>Log in to your account</p>
+
+    <div class="input-wrap">
+      <div class="usr-wrap login">
+        <label for="">Username</label>
+        <input type="text" class="usr">
+      </div>
+
+      <div class="pass-wrap">
+        <label for="">Password</label>
+        <input type="password" class="pass">
+      </div>
+
+      <div class="register-btn">Log in</div>
+    </div>
+  </form>
+  
   <script src="./main.js"></script>
 </body>
 
