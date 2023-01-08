@@ -37,38 +37,39 @@
       margin-top: 1.8rem;
       margin-bottom: 1.5rem;
       margin-right: calc(10vw + 1.5rem);
-      padding: 0.5rem 1.5rem;
+      // padding: 0.5rem 1.5rem;
       font-weight: 300;
-      border: 1px solid white;
-      background-color: black;
       transition: all 0.2s ease;
-      z-index: 10;
+
+
+      a {
+        position: relative;
+        padding: 0.5rem 1.5rem;
+        border: 1px solid white;
+        background-color: black;
 
         &:hover {
           cursor: pointer;
           background-color: rgba(0, 0, 0, 0.66);
           border-color: colors.$gold;
+          color: colors.$gold;
 
             &::before {
               border-color: colors.$gold;
               top: -5px;
               left: -5px;
               width: calc(100% + 9px);
-              height: calc(100% + 9px);
-              pointer-events: none;
+              height: calc(100% + 9px);    
             }
             &::after {
               border-color: colors.$gold;
               bottom: -5px;
               right: -5px;
               width: calc(100% + 9px);
-              height: calc(100% + 9px);
-              pointer-events: none;
-            }
-            a {
-              color: colors.$gold;
+              height: calc(100% + 9px);    
             }
         }
+
 
         &::before {
           content: '';
@@ -80,6 +81,7 @@
           border-top: 1px solid white;
           border-left: 1px solid white;
           transition: all 0.3s ease;
+          pointer-events: none;
         }
 
         &::after {  
@@ -91,8 +93,13 @@
           height: 7px;
           border-bottom: 1px solid white;
           border-right: 1px solid white;
-          transition: all 0.3s ease;   
+          transition: all 0.3s ease;
+          pointer-events: none;
         }
+
+      }
+      
+
     }
 }
 
