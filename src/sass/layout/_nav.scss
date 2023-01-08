@@ -50,7 +50,8 @@
   }
 
 .menu {
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
   top: 0;
   left: 0;
   width: 100vw;
@@ -88,7 +89,7 @@
         display: flex;
         width: 100%;
         padding: 0.5em 0;
-        margin: 0.5em;
+        margin: calc(0.5em - 0.2vw);
         transition-property: opacity, margin-left, color;
         transition-duration: 0.2s, 0.25s, 0.1s;
         transition-timing-function: ease;

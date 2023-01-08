@@ -1,3 +1,21 @@
+window.onload = focusEvent();
+
+function focusEvent() {
+    const body = document.querySelector('body');
+    if (body.classList.contains('register-page')) {
+        ['focusin', 'focusout'].forEach(evt => addEventListener(evt, function activeState(event) {
+            if (!event.target.value) {
+                event.target.previousElementSibling.classList.toggle('focus');
+            } else {
+                event.target.previousElementSibling.classList.toggle('focus', true);
+            }
+        }))        
+    }
+}
+
+let root = document.documentElement;
+root.addEventListener('click', e => console.log(window.innerWidth))
+
 function open_menu() {
     const menu = document.querySelector('.menu');
     const anchors = document.querySelectorAll('a');
@@ -16,32 +34,33 @@ function open_menu() {
         }
 }
 
-['focusin', 'focusout'].forEach(evt => addEventListener(evt, function activeState(event) {
-    if (!event.target.value) {
-        event.target.previousElementSibling.classList.toggle('focus');
-    } else {
-        event.target.previousElementSibling.classList.toggle('focus', true);
-    }
-}))
+function resetForm() {
+    let inputs = document.querySelectorAll('input');
+    let labels = document.querySelectorAll('label');
+    inputs.forEach(input => input.value = '');
+    labels.forEach(label => label.classList.remove('focus'));
+}
 
 function goToLogin() {
-    logIn = document.querySelector('.log-in-form');
-    signUp = document.querySelector('.sign-up-form');
-    if (!logIn.classList.contains('form-display-visible')) {
-        logIn.classList.add('form-display-visible');
-        logIn.classList.remove('.form-display-none');
-        signUp.classList.add('form-display-none');
-        signUp.classList.remove('form-display-visible')
-    }
+    const logIn = document.querySelector('.log-in-form');
+    const signUp = document.querySelector('.sign-up-form');
+        if (!logIn.classList.contains('form-display-visible')) {
+            logIn.classList.add('form-display-visible');
+            logIn.classList.remove('.form-display-none');
+            signUp.classList.add('form-display-none');
+            signUp.classList.remove('form-display-visible');
+        }
+    resetForm();
 }
 
 function goToSignUp() {
-    logIn = document.querySelector('.log-in-form');
-    signUp = document.querySelector('.sign-up-form');
-    if (!signUp.classList.contains('form-display-visible')) {
-        signUp.classList.add('form-display-visible');
-        signUp.classList.remove('.form-display-none');
-        logIn.classList.add('form-display-none');
-        logIn.classList.remove('form-display-visible')
+    const logIn = document.querySelector('.log-in-form');
+    const signUp = document.querySelector('.sign-up-form');
+        if (!signUp.classList.contains('form-display-visible')) {
+            signUp.classList.add('form-display-visible');
+            signUp.classList.remove('.form-display-none');
+            logIn.classList.add('form-display-none');
+            logIn.classList.remove('form-display-visible');
+        }
+        resetForm();
     }
-}

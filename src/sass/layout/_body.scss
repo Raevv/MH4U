@@ -1,7 +1,7 @@
 @use "../abstracts/assets";
 
 body {
-    font-size: calc(15px + 0.390625vw);
+    font-size: max(calc(15px + 0.390625vw), 30px);
     display: flex;
     flex-direction: column;
     height: 100%;

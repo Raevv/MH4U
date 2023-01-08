@@ -1,6 +1,7 @@
 @use "../abstracts/colors";
 @use "../abstracts/assets";
 
+
 .title-wrapper {
   display: flex;
   width: 100vw;
@@ -11,7 +12,7 @@
   display: flex;
   flex-direction: column;
   width: clamp(500px, 55vw, 55vw);
-  height: 350px;
+  height: max-content;
   background-color: #130D0C;
   align-self: center;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.66);
@@ -34,12 +35,14 @@
       position: relative;
       align-self: flex-end;
       margin-top: 1.8rem;
+      margin-bottom: 1.5rem;
       margin-right: calc(10vw + 1.5rem);
       padding: 0.5rem 1.5rem;
       font-weight: 300;
       border: 1px solid white;
       background-color: black;
       transition: all 0.2s ease;
+      z-index: 10;
 
         &:hover {
           cursor: pointer;
@@ -48,9 +51,19 @@
 
             &::before {
               border-color: colors.$gold;
+              top: -5px;
+              left: -5px;
+              width: calc(100% + 9px);
+              height: calc(100% + 9px);
+              pointer-events: none;
             }
             &::after {
               border-color: colors.$gold;
+              bottom: -5px;
+              right: -5px;
+              width: calc(100% + 9px);
+              height: calc(100% + 9px);
+              pointer-events: none;
             }
             a {
               color: colors.$gold;
@@ -65,7 +78,8 @@
           width: 7px;
           height: 7px;
           border-top: 1px solid white;
-          border-left: 1px solid white;    
+          border-left: 1px solid white;
+          transition: all 0.3s ease;
         }
 
         &::after {  
@@ -76,7 +90,8 @@
           width: 7px;
           height: 7px;
           border-bottom: 1px solid white;
-          border-right: 1px solid white;    
+          border-right: 1px solid white;
+          transition: all 0.3s ease;   
         }
     }
 }
@@ -86,8 +101,8 @@
   flex-direction: column;
   margin-left: -10vw;
   margin-top: 100px;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   width: 55vw;
   height: 350px;
   background-image: assets.$bg-brown;
@@ -95,7 +110,51 @@
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.66);
 
   h1 {
-    margin: 1rem 0 0 1.5rem;
     width: 90%;
+    height: max-content;
+    text-align: justify;
+    line-height: 1.75rem;
   }
+}
+
+@media screen and (max-width: 1000px){
+  .title-wrapper {
+    flex-direction: column;
+  }
+
+  .title {
+    width: 100vw;
+    text-align: center;
+
+    h1 {
+      margin: 2rem 0 0 0;
+      width: max-content;
+      align-self: center;
+    }
+
+    p {
+      align-self: center;
+      width: 75%;
+      margin: 1rem 0 0 0;
+    }
+
+    .sign-up {
+      align-self: center;
+      margin: 2rem 0 2rem 0;
+    }
+  }
+  
+  .intro {
+    height: max-content;
+    margin: 0;
+    width: 100%;
+
+    h1 {
+      align-self: center;
+      width: 75%;
+      margin: 2rem 0 2rem 0;
+      text-align: justify;
+    }
+  }
+
 }

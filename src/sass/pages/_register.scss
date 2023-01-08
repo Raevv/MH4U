@@ -12,32 +12,13 @@ body {
 .sign-up-form, .log-in-form{
     display: flex;
     flex-direction: column;
-    height: 80vh;
-    min-height: max-content;
-    min-height: 350px;
+    height: max(450px, 80vh);
     aspect-ratio: 1/1;
-    justify-content: flex-end;
+    justify-content: space-around;
     background: assets.$bg-brown;
     align-items: center;
     border-radius: 2px;
     box-shadow: 0px 0px 10px black;
-
-    input {
-        background: colors.$darkbrown;
-        color: white;
-        border: none;
-        outline: 1px solid grey;
-        height: 2rem;
-        margin-top: 35px;
-        width: calc(100% - 20px);
-        padding: 0 10px;
-        border-radius: 1px;
-        transition: all 0.2s ease;
-
-        &:focus {
-            outline: 1px solid colors.$gold;
-        }
-    }
 
     .change-form {
         display: flex;
@@ -60,8 +41,7 @@ body {
 
     p {
         font-size: 1.5rem;
-        margin-top: 10px;
-        margin-bottom: -10px;
+        margin-bottom: -35px;
     }
 
     .input-wrap {
@@ -125,9 +105,30 @@ body {
             @include mixins.hover_transition;
         }
     }
+
+    input {
+        background: colors.$darkbrown;
+        color: white;
+        border: none;
+        outline: 1px solid grey;
+        height: 2rem;
+        width: calc(100% - 20px);
+        margin-top: 35px;
+        padding: 0 10px;
+        border-radius: 1px;
+        transition: all 0.2s ease;    
+
+        &:focus {
+            outline: 1px solid colors.$gold;
+        }
+    }
+
 }
 
 .sign-up-form {
+    .change-form {
+        margin-top: 1em;
+    }
 
     label {
         top: 40px;
@@ -156,16 +157,11 @@ body {
 
     .register-btn {
         margin-top: 1em;
-        margin-bottom: 1.5em;
+        margin-bottom: 1em;
     }
 }
 
 .log-in-form {
-    .change-form {
-        * {
-            margin-top: -120px;
-        }
-    }
     
     .sign-up {
         color: lightgray;
@@ -183,10 +179,6 @@ body {
         box-shadow: 0px 0px 5px colors.$shadow;
     }
 
-    p {
-        margin-bottom: 20px;
-    }
-
     label {
         top: 40px;
         left: 20px;
@@ -198,7 +190,6 @@ body {
 
     .register-btn {
         margin-top: 2em;
-        margin-bottom: 1.5em;
     }
 }
 
