@@ -33,7 +33,7 @@ body {
             height: 3em;
             align-items: center;
             justify-content: center;
-            background-color: colors.$lightbrown;
+            background-color: colors.$light-brown;
             user-select: none;
         }
 
@@ -99,7 +99,7 @@ body {
             width: calc(80% + 20px);
             text-align: center;
             border-radius: 2px;
-            background: colors.$darkbrown;
+            background: colors.$dark-brown;
             user-select: none;
             cursor: pointer;
             @include mixins.hover_transition;
@@ -107,7 +107,7 @@ body {
     }
 
     input {
-        background: colors.$darkbrown;
+        background: colors.$dark-brown;
         color: white;
         border: none;
         outline: 1px solid grey;
@@ -150,7 +150,7 @@ body {
     }
 
     .sign-up {
-        background-color: colors.$darkbrown;
+        background-color: colors.$dark-brown;
         height: calc(3em + 10px);
         box-shadow: 0px 0px 5px colors.$shadow;
     }
@@ -174,7 +174,7 @@ body {
     }
 
     .log-in {
-        background-color: colors.$darkbrown;
+        background-color: colors.$dark-brown;
         height: calc(3em + 10px);
         box-shadow: 0px 0px 5px colors.$shadow;
     }

@@ -7,5 +7,7 @@
 @use "./layout/body";
 @use "./layout/nav";
 
+@use "./components/sections";
+
 @use "./pages/index";
 @use "./pages/register";

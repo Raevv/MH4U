@@ -2,13 +2,6 @@
 @use "../abstracts/assets";
 
 
-.title-wrapper {
-  display: flex;
-  width: 100vw;
-  height: max-content;
-  margin: 3rem 0 5rem 0;
-}
-
 .title {
   display: flex;
   flex-direction: column;
@@ -125,7 +118,7 @@
   }
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
   .title-wrapper {
     flex-direction: column;
   }

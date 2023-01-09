@@ -1,0 +1,46 @@
+@use "../abstracts/colors";
+@use "../abstracts/assets";
+
+
+section {
+    display: flex;
+    width: 100vw;
+    height: max-content;
+    margin: 3rem 0 5rem 0;
+
+    &:not(:first-of-type) {
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 0;
+        background: assets.$bg-brown;
+    }
+
+    h2 {
+        display: block;
+        text-transform: uppercase;
+        background: colors.$dark-brown;
+        font-size: 1.4rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-align: center;
+        width:min(500px, 100vw);
+        outline: 1px solid gray;
+        margin: 0 0 3rem 0;
+    }
+
+    & > * {
+        &:not(h2) {
+            width: 80vw;
+        }
+    }
+
+    p {
+        text-align: justify;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    section {
+        flex-direction: column;
+    }
+}
