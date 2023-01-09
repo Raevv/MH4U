@@ -14,7 +14,7 @@ function focusEvent() {
 }
 
 let root = document.documentElement;
-root.addEventListener('click', e => console.log(window.innerWidth))
+root.addEventListener('click', e => console.log('width : ' + window.innerWidth, '\n', 'height : ' + window.innerHeight));
 
 function open_menu() {
     const menu = document.querySelector('.menu');
