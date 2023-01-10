@@ -7,6 +7,7 @@ section {
     width: 100vw;
     height: max-content;
     margin: 3rem 0 5rem 0;
+    scroll-snap-align: start;
 
     &:not(:first-of-type) {
         flex-direction: column;

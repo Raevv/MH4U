@@ -4,10 +4,12 @@
 @use "./base/fonts";
 @use "./base/reset";
 
+@use "./components/sections";
+@use "./components/top_btn";
+@use "./components/arrow";
+
 @use "./layout/body";
 @use "./layout/nav";
-
-@use "./components/sections";
 
 @use "./pages/index";
 @use "./pages/register";

@@ -8,8 +8,9 @@
   width: clamp(500px, 55vw, 55vw);
   height: max-content;
   background-image: assets.$bg-dark;
-  align-self: center;
+  align-self: flex-start;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.66);
+  margin-top: 5rem;
 
     h1 {
       font-size: 4rem;
@@ -43,7 +44,7 @@
         background-color: black;
 
         &:hover {
-          cursor: pointer;
+          cursor: assets.$pointer;
           background-color: rgba(0, 0, 0, 0.66);
           border-color: colors.$gold;
           color: colors.$gold;
@@ -101,13 +102,13 @@
   display: flex;
   flex-direction: column;
   margin-left: -10vw;
-  margin-top: 100px;
+  margin-top: 7rem;
   justify-content: center;
   align-items: center;
   width: 55vw;
   height: 350px;
   background-image: assets.$bg-brown;
-  align-self: center;
+  align-self: flex-start;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.66);
 
   h1 {

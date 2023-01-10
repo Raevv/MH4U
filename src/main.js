@@ -1,8 +1,11 @@
 window.onload = focusEvent();
+window.onscroll = function () {
+    topBtn();
+    arrow();
+}
 
 function focusEvent() {
-    const body = document.querySelector('body');
-    if (body.classList.contains('register-page')) {
+    if (document.body.classList.contains('register-page')) {
         ['focusin', 'focusout'].forEach(evt => addEventListener(evt, function activeState(event) {
             if (!event.target.value) {
                 event.target.previousElementSibling.classList.toggle('focus');
@@ -62,5 +65,61 @@ function goToSignUp() {
             logIn.classList.add('form-display-none');
             logIn.classList.remove('form-display-visible');
         }
-        resetForm();
+    resetForm();
+}
+
+let topBtnUsed = false;
+
+function topBtn() {
+    const btn = document.querySelector('.top-btn');
+    if (document.body.scrollTop > 100 & topBtnUsed == false || document.documentElement.scrollTop > 100 & topBtnUsed == false) {
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = 'auto';
+    } else {
+        btn.style.opacity = '0';
+        btn.style.pointerEvents = 'none';
     }
+}
+
+function goToTop() {
+    document.documentElement.scrollTop = 0;
+    const btn = document.querySelector('.top-btn');
+    btn.classList.toggle('top-btn-anim', true);
+    topBtnUsed = true;
+    setTimeout(() => {
+        btn.classList.toggle('top-btn-anim', false);
+        topBtnUsed = false;
+    }, 500);
+}
+
+// let arrowHovered = false;
+
+function scrollPreview() {
+        const htmlElement = document.querySelector('html');
+        htmlElement.style.scrollSnapType = 'none';
+        document.documentElement.scrollTop = 200;
+        downArrow.style.pointerEvents = 'auto';
+        downArrow.style.opacity = '0';
+        setTimeout(() => {
+            htmlElement.style.scrollSnapType = 'y mandatory';
+            document.documentElement.scrollTop = 0;
+            downArrow.style.opacity = '1';
+        }, 750);
+}
+
+function arrow() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        downArrow.style.opacity = '0';
+    } else {
+        downArrow.style.opacity = '1';
+    }
+
+    if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+        downArrow.style.pointerEvents = 'none';
+    } else {
+        downArrow.style.pointerEvents = 'auto';
+    }2
+}
+
+const downArrow = document.querySelector('.arrow');
+downArrow.addEventListener('mouseenter', scrollPreview);

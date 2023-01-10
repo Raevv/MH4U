@@ -1,5 +1,11 @@
 @use "../abstracts/assets";
 
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    cursor: assets.$cursor;
+}
+
 body {
     font-size: max(calc(15px + 0.390625vw), 30px);
     display: flex;
@@ -13,7 +19,7 @@ body {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url('/resources/images/bg_page.jpg');
+        background-image: assets.$bg-page;
         background-size: cover;
         background-repeat: no-repeat;
         background-position-x: 100%;

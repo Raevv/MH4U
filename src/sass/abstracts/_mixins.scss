@@ -1,10 +1,12 @@
 @use "../abstracts/colors";
+@use "../abstracts/assets";
+
 
 @mixin hover_transition {
     transition: all 0.2s ease;
 
     &:hover {
         color: colors.$gold;
-        cursor: pointer;
+        cursor: assets.$pointer;
     }
 }

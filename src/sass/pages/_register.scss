@@ -101,7 +101,7 @@ body {
             border-radius: 2px;
             background: colors.$dark-brown;
             user-select: none;
-            cursor: pointer;
+            cursor: assets.$pointer;
             @include mixins.hover_transition;
         }
     }
@@ -145,7 +145,7 @@ body {
 
         &:hover {
             color: white;
-            cursor: pointer;
+            cursor: assets.$pointer;
         }
     }
 
@@ -169,7 +169,7 @@ body {
 
         &:hover {
             color: white;
-            cursor: pointer;
+            cursor: assets.$pointer;
         }
     }
 
@@ -218,4 +218,26 @@ body {
 @keyframes disappear {
     0% {display: flex; opacity: 1;}
     100% {display: none; opacity: 0;}
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        height: 100vh;
+    }
+
+    .sign-up-form, .log-in-form {
+        width: 100vw;
+        height: 70vh;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    body {
+        height: 100vh;
+    }
+
+    .sign-up-form, .log-in-form {
+        width: 75vw;
+        height: 75vw;
+    }
 }

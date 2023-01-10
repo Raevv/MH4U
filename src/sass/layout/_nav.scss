@@ -55,7 +55,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: calc(100vh + 3rem);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,7 +100,7 @@
         font-family: 'Poppins';
 
         &:hover {
-          cursor: pointer;
+          cursor: assets.$pointer;
           color: colors.$gold;
         }
       }

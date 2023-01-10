@@ -1,0 +1,46 @@
+@use "../abstracts/assets";
+
+.arrow {
+    position: fixed;
+    bottom: 10px;
+    width: min-content;
+    height: min-content;
+    transition: all 0.1s ease;
+
+    a {
+        &:hover {
+            cursor: assets.$pointer;
+        }
+    }
+
+    &:hover {
+
+        svg {
+            stroke: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    svg {
+        width: 35px;
+        height: 35px;
+        transform: scaleX(3);
+        stroke: rgba(255, 255, 255, 0.2);
+        animation-name: wobble;
+        animation-duration: 1s;
+        animation-timing-function: ease-in;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        transition: all 0.2s ease;
+    }
+}
+
+@keyframes wobble {
+    0% {transform: translateY(0) scaleX(3);}
+    100% {transform: translateY(10px) scaleX(3);}
+}
+
+@media screen and (max-width: 1000px) {
+    .arrow {
+        display: none;
+    }
+}
