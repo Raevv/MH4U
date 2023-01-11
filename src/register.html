@@ -27,10 +27,10 @@
     </ul>
   </div>
 
-  <form action="" class="sign-up-form">
+  <form action="" class="register-form form-display-visible">
     <div class="change-form">
       <div class="log-in" onclick="goToLogin()">Log in</div>
-      <div class="sign-up">Sign up</div>
+      <div class="register">Sign up</div>
     </div>
     
     <p>Sign up for free</p>
@@ -53,16 +53,16 @@
 
       <div class="conf-pass-wrap">
         <label for="">Confirm password</label>
-        <input type="password" class="conf-pass">
+        <input type="password" class="conf-pass" onkeyup="checkPassword()">
       </div>
-      <div class="register-btn">Register</div>
+      <div class="register-btn">Sign up</div>
     </div>
   </form>
 
   <form action="" class="log-in-form form-display-none">
     <div class="change-form">
       <div class="log-in">Log in</div>
-      <div class="sign-up" onclick="goToSignUp()">Sign up</div>
+      <div class="register" onclick="goToSignUp()">Sign up</div>
     </div>
     
     <p>Log in to your account</p>

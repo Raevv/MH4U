@@ -8,11 +8,16 @@ function focusEvent() {
     if (document.body.classList.contains('register-page')) {
         ['focusin', 'focusout'].forEach(evt => addEventListener(evt, function activeState(event) {
             if (!event.target.value) {
-                event.target.previousElementSibling.classList.toggle('focus');
+                event.target.previousElementSibling.classList.toggle('move');
+                event.target.nextElementSibling.classList.toggle('focus');
             } else {
                 event.target.previousElementSibling.classList.toggle('focus', true);
+                event.target.nextElementSibling.classList.toggle('focus', true);
             }
         }))        
+    } else if (document.body.classList.contains('index')) {
+        const downArrow = document.querySelector('.arrow');
+        downArrow.addEventListener('mouseenter', scrollPreview);
     }
 }
 
@@ -41,12 +46,12 @@ function resetForm() {
     let inputs = document.querySelectorAll('input');
     let labels = document.querySelectorAll('label');
     inputs.forEach(input => input.value = '');
-    labels.forEach(label => label.classList.remove('focus'));
+    labels.forEach(label => label.classList.remove('move'));
 }
 
 function goToLogin() {
     const logIn = document.querySelector('.log-in-form');
-    const signUp = document.querySelector('.sign-up-form');
+    const signUp = document.querySelector('.register-form');
         if (!logIn.classList.contains('form-display-visible')) {
             logIn.classList.add('form-display-visible');
             logIn.classList.remove('.form-display-none');
@@ -58,7 +63,7 @@ function goToLogin() {
 
 function goToSignUp() {
     const logIn = document.querySelector('.log-in-form');
-    const signUp = document.querySelector('.sign-up-form');
+    const signUp = document.querySelector('.register-form');
         if (!signUp.classList.contains('form-display-visible')) {
             signUp.classList.add('form-display-visible');
             signUp.classList.remove('.form-display-none');
@@ -121,5 +126,11 @@ function arrow() {
     }2
 }
 
-const downArrow = document.querySelector('.arrow');
-downArrow.addEventListener('mouseenter', scrollPreview);
+function checkPassword() {
+    const pass = document.querySelector('.register-form .pass');
+    const confPass = document.querySelector('.conf-pass');
+    const form = document.querySelector('.register-form');
+    if (form.classList.contains('form-display-visible') && pass.value !== confPass.value) {
+        confPass.style.outline = '1px solid red';
+    }
+}
