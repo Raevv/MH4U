@@ -16,10 +16,10 @@ function focusEvent() {
                 event.target.classList.toggle('focus', true);
             }
         }))        
-    } else if (document.body.classList.contains('index')) {
-        const downArrow = document.querySelector('.arrow');
-        downArrow.addEventListener('mouseenter', scrollPreview);
-    }
+    } //else if (document.body.classList.contains('index')) {
+       // const downArrow = document.querySelector('.arrow');
+      //  downArrow.addEventListener('mouseenter', scrollPreview);
+   // }
 }
 
 let root = document.documentElement;
@@ -105,8 +105,10 @@ function goToTop() {
 }
 
 // let arrowHovered = false;
-
+const downArrow = document.querySelector('.arrow');
+        downArrow.addEventListener('mouseenter', scrollPreview);
 function scrollPreview() {
+        
         const htmlElement = document.querySelector('html');
         htmlElement.style.scrollSnapType = 'none';
         document.documentElement.scrollTop = 200;
