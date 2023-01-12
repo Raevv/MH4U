@@ -538,6 +538,9 @@ body {
   opacity: 0;
   transition: all 0.2s ease;
 }
+.register-form span.show {
+  opacity: 1;
+}
 .register-form .warning {
   position: absolute;
   right: 10px;
@@ -552,9 +555,6 @@ body {
   transition: all 0.2s ease;
 }
 .register-form .warning.show {
-  opacity: 1;
-}
-.register-form .wrong-pass {
   opacity: 1;
 }
 .register-form .register-btn {

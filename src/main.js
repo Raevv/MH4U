@@ -46,8 +46,14 @@ function open_menu() {
 function resetForm() {
     let inputs = document.querySelectorAll('input');
     let labels = document.querySelectorAll('label');
-    inputs.forEach(input => input.value = '');
+    const warning = document.querySelector('.warning');
+    inputs.forEach(input => {
+        input.value = '';
+        input.classList.remove('wrong', 'focus');
+    });
     labels.forEach(label => label.classList.remove('move'));
+    warning.classList.remove('show');
+    warning.nextElementSibling.classList.remove('show');
 }
 
 function goToLogin() {
@@ -136,12 +142,12 @@ function checkPassword() {
     if (form.classList.contains('form-display-visible') && pass.value !== confPass.value && confPass.value) {
         confPass.classList.toggle('wrong', true);
         confPass.classList.toggle('focus', false);
-        errorText.classList.toggle('wrong-pass', true);
+        errorText.classList.toggle('show', true);
         warning.classList.toggle('show', true);
     } else {
         confPass.classList.toggle('wrong', false);
         confPass.classList.toggle('focus', true);
-        errorText.classList.toggle('wrong-pass', false);
+        errorText.classList.toggle('show', false);
         warning.classList.toggle('show', false);
     }
 }
