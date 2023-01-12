@@ -159,9 +159,39 @@ body {
         outline: 1px solid red;
     }
 
+    span {
+        font-size: 0.66rem;
+        margin-top: 20px;
+        color: colors.$error;
+        opacity: 0;
+        transition: all 0.2s ease;
+    }
+
+    .warning {
+        position: absolute;
+        right: 10px;
+        bottom: 1.75rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-image: assets.$warning;
+        background-size: cover;
+        opacity: 0;
+        user-select: none;
+        pointer-events: none;
+        transition: all 0.2s ease;
+
+        &.show {
+            opacity: 1;
+        }
+    }
+
+    .wrong-pass {
+        opacity: 1;
+    }
+
     .register-btn {
-        margin-top: 1.5em;
-        margin-bottom: 1em;
+        margin-top: 0.66rem;
+        margin-bottom: 1rem;
     }
 }
 
