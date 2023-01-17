@@ -18,7 +18,7 @@ if (document.body.classList.contains('index')) {
             htmlElement.style.scrollSnapType = 'y mandatory';
             document.documentElement.scrollTop = 0;
             downArrow.style.opacity = '1';
-        }, 750);
+        }, 333);
     }
 
     function arrow() {

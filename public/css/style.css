@@ -29,11 +29,14 @@ section {
   margin: 3rem 0 5rem 0;
   scroll-snap-align: start;
 }
-section:not(:first-of-type) {
+section:not(#welcome) {
   flex-direction: column;
   align-items: center;
   padding: 3rem 0;
   background: url("../resources/images/bg_brown.jpg");
+}
+section:last-of-type {
+  scroll-snap-align: end;
 }
 section h2 {
   display: block;
@@ -54,25 +57,40 @@ section p {
   text-align: justify;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) and (min-height: 1000px) {
   section {
     flex-direction: column;
+  }
+  #welcome {
+    flex-direction: column;
+  }
+  .intro {
+    height: max-content;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  section:not(#welcome) {
+    padding-top: 0;
   }
 }
 .top-btn {
   position: fixed;
   display: block;
   bottom: 30px;
-  right: 30px;
+  left: 30px;
   width: 50px;
   height: 50px;
   background-image: url("../resources/images/bow.png");
   background-size: cover;
   background-repeat: no-repeat;
-  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
   border-radius: 2px;
   transition: all 0.2s ease;
   transform: rotate(90deg);
+}
+.top-btn:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+  filter: invert(2%) sepia(56%) saturate(1772%) hue-rotate(357deg) brightness(140%) contrast(109%);
 }
 
 .top-btn-anim {
@@ -99,7 +117,7 @@ section p {
   transform: scaleX(3);
   stroke: rgba(255, 255, 255, 0.2);
   animation-name: wobble;
-  animation-duration: 1s;
+  animation-duration: 0.66s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -141,7 +159,7 @@ body::before {
   background-image: url("../resources/images/bg_page.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-x: 100%;
+  background-position: center;
   /* filter: brightness(80%) saturate(1) contrast(1.3); */
   z-index: -1;
 }
@@ -165,7 +183,7 @@ body::before {
   transition: all 0.2s ease;
 }
 .menu-btn:hover {
-  color: #ffd700;
+  color: hsl(51deg, 100%, 50%);
   cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
 }
 .menu-btn::before {
@@ -246,7 +264,7 @@ body::before {
 }
 .menu ul li a:hover {
   cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
-  color: #ffd700;
+  color: hsl(51deg, 100%, 50%);
 }
 
 .open-menu {
@@ -260,6 +278,12 @@ body::before {
   margin-left: 0 !important;
 }
 
+#welcome {
+  padding-top: min(5rem, 30vh);
+  height: min(600px, 100vh - min(5rem, 30vh));
+  margin: 0;
+}
+
 .title {
   display: flex;
   flex-direction: column;
@@ -268,7 +292,6 @@ body::before {
   background-image: url("../resources/images/bg_dark.jpg");
   align-self: flex-start;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.66);
-  margin-top: 5rem;
 }
 .title h1 {
   font-size: 4rem;
@@ -300,18 +323,18 @@ body::before {
 .title .register a:hover {
   cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
   background-color: rgba(0, 0, 0, 0.66);
-  border-color: #ffd700;
-  color: #ffd700;
+  border-color: hsl(51deg, 100%, 50%);
+  color: hsl(51deg, 100%, 50%);
 }
 .title .register a:hover::before {
-  border-color: #ffd700;
+  border-color: hsl(51deg, 100%, 50%);
   top: -5px;
   left: -5px;
   width: calc(100% + 9px);
   height: calc(100% + 9px);
 }
 .title .register a:hover::after {
-  border-color: #ffd700;
+  border-color: hsl(51deg, 100%, 50%);
   bottom: -5px;
   right: -5px;
   width: calc(100% + 9px);
@@ -345,8 +368,7 @@ body::before {
 .intro {
   display: flex;
   flex-direction: column;
-  margin-left: -10vw;
-  margin-top: 7rem;
+  margin: 2rem 0 0 -10vw;
   justify-content: center;
   align-items: center;
   width: 55vw;
@@ -363,12 +385,14 @@ body::before {
 }
 
 @media screen and (max-width: 1000px) {
-  .title-wrapper {
+  #welcome {
     flex-direction: column;
+    height: max-content;
   }
   .title {
     width: 100vw;
     text-align: center;
+    box-shadow: none;
   }
   .title h1 {
     margin: 2rem 0 0 0;
@@ -387,7 +411,7 @@ body::before {
   .intro {
     height: max-content;
     margin: 0;
-    width: 100%;
+    width: 100vw;
   }
   .intro h1 {
     align-self: center;
@@ -470,12 +494,12 @@ body {
   transition: all 0.2s ease;
 }
 .register-form .input-wrap .move, .log-in-form .input-wrap .move {
-  color: #ffd700;
+  color: hsl(51deg, 100%, 50%);
   font-size: 0.75em;
   transition: all 0.2s ease;
 }
 .register-form .input-wrap .focus, .log-in-form .input-wrap .focus {
-  outline: 1px solid #ffd700;
+  outline: 1px solid hsl(51deg, 100%, 50%);
 }
 .register-form .input-wrap .register-btn, .log-in-form .input-wrap .register-btn {
   display: block;
@@ -489,7 +513,7 @@ body {
   transition: all 0.2s ease;
 }
 .register-form .input-wrap .register-btn:hover, .log-in-form .input-wrap .register-btn:hover {
-  color: #ffd700;
+  color: hsl(51deg, 100%, 50%);
   cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
 }
 .register-form input, .log-in-form input {

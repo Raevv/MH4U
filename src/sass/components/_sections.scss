@@ -9,11 +9,15 @@ section {
     margin: 3rem 0 5rem 0;
     scroll-snap-align: start;
 
-    &:not(:first-of-type) {
+    &:not(#welcome) {
         flex-direction: column;
         align-items: center;
         padding: 3rem 0;
         background: assets.$bg-brown;
+    }
+
+    &:last-of-type {
+        scroll-snap-align: end;
     }
 
     h2 {
@@ -40,8 +44,25 @@ section {
     }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1000px) and (min-height: 1000px) {
     section {
         flex-direction: column;
+    }
+
+    #welcome {
+        flex-direction: column;
+    }
+    
+    .intro {
+        height: max-content;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    section {
+        &:not(#welcome) {
+            padding-top: 0;
+        }
     }
 }

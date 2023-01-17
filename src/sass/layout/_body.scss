@@ -22,7 +22,7 @@ body {
         background-image: assets.$bg-page;
         background-size: cover;
         background-repeat: no-repeat;
-        background-position-x: 100%;
+        background-position: center;
         /* filter: brightness(80%) saturate(1) contrast(1.3); */
         z-index: -1;
     }
