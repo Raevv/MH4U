@@ -137,6 +137,50 @@ section p {
     display: none;
   }
 }
+.slider {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+  background: hsl(12deg, 15%, 25%);
+  height: 15px;
+  width: 392px;
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  z-index: 10;
+  --step: 0;
+}
+.slider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: var(--step);
+  background: red;
+}
+.slider::-moz-range-thumb {
+  border-radius: 2px;
+  height: 15px;
+  width: 15px;
+  border: 3px solid hsl(9deg, 23%, 5%);
+}
+.slider::-moz-range-progress {
+  background: red;
+  height: 100%;
+}
+.slider::-webkit-slider-runnable-track {
+  height: 15px;
+  background-color: hsl(12deg, 15%, 25%);
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border-radius: 2px;
+  background: white;
+  margin-top: -3px;
+  height: 20px;
+  width: 20px;
+  border: 3px solid hsl(9deg, 23%, 5%);
+}
+
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;

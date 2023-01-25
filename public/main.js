@@ -155,3 +155,25 @@ function open_menu() {
             anchors.forEach(link => link.classList.toggle('show-text', false));
         }
 }
+
+if (document.body.classList.contains('test')) {
+    const slider = document.querySelector('.slider');
+    var mouseDown = false;
+    function holdClick() {
+        if (!mouseDown) {
+            mouseDown = true;
+            let myInterval = setInterval(test, 100);
+        } 
+    }
+
+    function releaseClick() {
+        if (mouseDown) {
+            mouseDown = false;
+        }
+    }
+
+    function test() {
+        slider.style.setProperty('--step', 392 / 22 * slider.value + "px");
+    }
+
+}
