@@ -1,5 +1,5 @@
 
-window.onscroll = function () {
+window.onscroll = function() {
     topBtn();
     arrow();
 }
@@ -158,6 +158,9 @@ function open_menu() {
 
 if (document.body.classList.contains('test')) {
     const slider = document.querySelector('.slider');
+    window.onload = function() {
+        slider.value = 0;
+    }
     var mouseDown = false;
     function holdClick() {
         if (!mouseDown) {
