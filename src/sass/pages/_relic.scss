@@ -1,13 +1,13 @@
 @use "../abstracts/colors";
 @use "../abstracts/assets";
 
-body {
+.relic-page {
     display: flex;
     flex-direction: column;
-    align-content: center;
-    justify-content: center;
     height: 100vh;
     width: 100vw;
+    align-items: center;
+    justify-content: center;
 }
 
 .weapon-select {
@@ -29,6 +29,7 @@ body {
 }
 
 .main-window {
+    display: grid;
     margin: 0;
     height: 500px;
     aspect-ratio: 1.66/1;
@@ -42,6 +43,17 @@ body {
     height: 120% !important;
     aspect-ratio: 1/1 !important;
     background-color: colors.$brown !important;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        width: 100%;
+        height: 20px;
+        background-color: colors.$brown;
+    }
 }
 
 .gs {

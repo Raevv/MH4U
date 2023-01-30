@@ -18,7 +18,7 @@ if (document.body.classList.contains('index')) {
             htmlElement.style.scrollSnapType = 'y mandatory';
             document.documentElement.scrollTop = 0;
             downArrow.style.opacity = '1';
-        }, 333);
+        }, 500);
     }
 
     function arrow() {
@@ -182,7 +182,7 @@ if (document.body.classList.contains('test')) {
 
 }
 
-if (document.body.classList.contains('relic')) {
+if (document.body.classList.contains('relic-page')) {
     const gs = document.querySelector('.gs');
     window.onload = function() {
         gs.classList.add('selected');
@@ -212,6 +212,7 @@ if (document.body.classList.contains('relic')) {
                 selected.classList.remove('selected');
                 e.target.classList.add('selected');
                 e.target.style.setProperty('cursor', 'url("../resources/cursors/mhw_cursor.cur"), auto');
+                e.target.style.setProperty('margin-top', '0');
                 console.log('Class "selected" added to ' + weapons[i]);
             } else {
                 console.log(weapons[i] + ' is already selected');

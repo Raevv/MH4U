@@ -101,6 +101,7 @@ section p {
 .arrow {
   position: fixed;
   bottom: 10px;
+  left: calc(50% - 17.5px);
   width: min-content;
   height: min-content;
   transition: all 0.1s ease;
@@ -189,9 +190,6 @@ html {
 
 body {
   font-size: max(15px + 0.390625vw, 30px);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 body::before {
   content: "";
@@ -464,7 +462,7 @@ body::before {
     text-align: justify;
   }
 }
-body {
+.register-page {
   display: grid;
   place-items: center;
   height: 100vh;
@@ -713,13 +711,13 @@ body {
     height: 75vw;
   }
 }
-body {
+.relic-page {
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: center;
   height: 100vh;
   width: 100vw;
+  align-items: center;
+  justify-content: center;
 }
 
 .weapon-select {
@@ -740,6 +738,7 @@ body {
 }
 
 .main-window {
+  display: grid;
   margin: 0;
   height: 500px;
   aspect-ratio: 1.66/1;
@@ -751,6 +750,16 @@ body {
   height: 120% !important;
   aspect-ratio: 1/1 !important;
   background-color: hsl(12deg, 15%, 15%) !important;
+  position: relative;
+}
+.selected::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-color: hsl(12deg, 15%, 15%);
 }
 
 .gs {

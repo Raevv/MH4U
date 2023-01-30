@@ -8,9 +8,6 @@ html {
 
 body {
     font-size: max(calc(15px + 0.390625vw), 30px);
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 
     &::before {
         content: "";

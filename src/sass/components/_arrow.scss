@@ -3,6 +3,7 @@
 .arrow {
     position: fixed;
     bottom: 10px;
+    left: calc(50% - 17.5px);
     width: min-content;
     height: min-content;
     transition: all 0.1s ease;
