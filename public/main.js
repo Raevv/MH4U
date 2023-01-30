@@ -183,6 +183,10 @@ if (document.body.classList.contains('test')) {
 }
 
 if (document.body.classList.contains('relic')) {
+    const gs = document.querySelector('.gs');
+    window.onload = function() {
+        gs.classList.add('selected');
+    }
     let weapons = ['Great Sword', 'Long Sword', 'Sword and Shield', 'Dual blades', 'Hammer', 'Hunting Horn', 'Lance', 'Gunlance', 'Switch Axe', 'Charge Blade', 'Insect Glaive', 'Bow', 'Light Bowgun'];
 
     let icons = document.querySelectorAll('.weapon');
@@ -190,27 +194,30 @@ if (document.body.classList.contains('relic')) {
         icons[i].addEventListener('mouseenter', e => {
             console.log('Started hovering ' + weapons[i]);
             if (!e.target.classList.contains('selected')) {
-                e.target.style.setProperty('height', '110%');
+                e.target.style.setProperty('margin-top', '-0.5%')
+                e.target.style.setProperty('cursor', 'url("../resources/cursors/mhw_pointer.cur"), pointer');
+            } else {
+                e.target.style.setProperty('cursor', 'url("../resources/cursors/mhw_cursor.cur"), auto');
             }
         })
 
         icons[i].addEventListener('mouseleave', e => {
             console.log('Stopped hovering ' + weapons[i]);
-            if (!e.target.classList.contains('selected')) {
-                e.target.style.setProperty('height', '100%');
-            }
+            e.target.style.setProperty('margin-top', '0');
         })
 
         icons[i].addEventListener('click', e => {
             if (!e.target.classList.contains('selected')) {
+                let selected = document.querySelector('.selected');
                 selected.classList.remove('selected');
                 e.target.classList.add('selected');
+                e.target.style.setProperty('cursor', 'url("../resources/cursors/mhw_cursor.cur"), auto');
                 console.log('Class "selected" added to ' + weapons[i]);
             } else {
-                e.target.classList.remove('selected');
-                console.log('Class "selected" removed from ' + weapons[i]);
+                console.log(weapons[i] + ' is already selected');
             }
         })
     }
+    
     
 }
