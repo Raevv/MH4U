@@ -172,11 +172,12 @@ if (document.body.classList.contains('test')) {
     function releaseClick() {
         if (mouseDown) {
             mouseDown = false;
+            console.log(slider.value);
         }
     }
-
+    
     function test() {
-        slider.style.setProperty('--step', 392 / 22 * slider.value + "px");
+        slider.style.setProperty('--step', (392 / 21 * slider.value) - (17 / 19 * slider.value) + "px");
     }
 
 }
