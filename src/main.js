@@ -165,7 +165,7 @@ if (document.body.classList.contains('test')) {
     function holdClick() {
         if (!mouseDown) {
             mouseDown = true;
-            let myInterval = setInterval(test, 100);
+            let myInterval = setInterval(step, 100);
         } 
     }
 
@@ -175,9 +175,42 @@ if (document.body.classList.contains('test')) {
             console.log(slider.value);
         }
     }
-    
-    function test() {
+
+    function step() {
         slider.style.setProperty('--step', (392 / 21 * slider.value) - (17 / 19 * slider.value) + "px");
     }
 
+}
+
+if (document.body.classList.contains('relic')) {
+    let weapons = ['Great Sword', 'Long Sword', 'Sword and Shield', 'Dual blades', 'Hammer', 'Hunting Horn', 'Lance', 'Gunlance', 'Switch Axe', 'Charge Blade', 'Insect Glaive', 'Bow', 'Light Bowgun'];
+
+    let icons = document.querySelectorAll('.weapon');
+    for (let i = 0; i < icons.length; i++) {
+        icons[i].addEventListener('mouseenter', e => {
+            console.log('Started hovering ' + weapons[i]);
+            if (!e.target.classList.contains('selected')) {
+                e.target.style.setProperty('height', '110%');
+            }
+        })
+
+        icons[i].addEventListener('mouseleave', e => {
+            console.log('Stopped hovering ' + weapons[i]);
+            if (!e.target.classList.contains('selected')) {
+                e.target.style.setProperty('height', '100%');
+            }
+        })
+
+        icons[i].addEventListener('click', e => {
+            if (!e.target.classList.contains('selected')) {
+                selected.classList.remove('selected');
+                e.target.classList.add('selected');
+                console.log('Class "selected" added to ' + weapons[i]);
+            } else {
+                e.target.classList.remove('selected');
+                console.log('Class "selected" removed from ' + weapons[i]);
+            }
+        })
+    }
+    
 }

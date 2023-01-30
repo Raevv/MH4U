@@ -725,7 +725,7 @@ body {
 .weapon-select {
   display: flex;
   flex-direction: row;
-  width: 132.8vh;
+  width: 830px;
   height: 50px;
   margin: 0;
   margin-bottom: 10px;
@@ -734,53 +734,112 @@ body {
 .weapon-select div {
   height: 100%;
   aspect-ratio: 1/1;
-  background: hsl(12deg, 15%, 25%);
+  background-color: hsl(12deg, 15%, 25%);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.66);
-}
-.weapon-select div:hover {
-  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+  transition: all 0.2s ease;
 }
 
 .main-window {
   margin: 0;
-  height: 80vh;
+  height: 500px;
   aspect-ratio: 1.66/1;
   background: hsl(12deg, 15%, 15%);
   border-radius: 1px;
 }
 
-.weapon-gs {
+.selected {
+  height: 120% !important;
+  aspect-ratio: 1/1 !important;
+  background-color: hsl(12deg, 15%, 15%) !important;
+}
+
+.gs {
   background-image: url("../resources/images/weapon_icons/Great_Sword_Icon_White.webp");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
-.weapon-ls {
+.ls {
   background-image: url("../resources/images/weapon_icons/Long_Sword_Icon_White.webp");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
-.weapon-sns {
+.sns {
   background-image: url("../resources/images/weapon_icons/Sword_and_Shield_Icon_White.webp");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
-.weapon-db {
+.db {
   background-image: url("../resources/images/weapon_icons/Dual_Blades_Icon_White.webp");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
-.weapon-h {
-  background-image: url("../resources/images/weapon_icons/Hammer_Icon_Wite.webp");
+.h {
+  background-image: url("../resources/images/weapon_icons/Hammer_Icon_White.webp");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
-.weapon-hh {
+.hh {
   background-image: url("../resources/images/weapon_icons/Hunting_Horn_Icon_White.webp");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+}
+
+.lance {
+  background-image: url("../resources/images/weapon_icons/Lance_Icon_White.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.gl {
+  background-image: url("../resources/images/weapon_icons/Gunlance_Icon_White.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.sa {
+  background-image: url("../resources/images/weapon_icons/Switch_Axe_Icon_White.webp");
+  background-size: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cb {
+  background-image: url("../resources/images/weapon_icons/Charge_Blade_Icon_White.webp");
+  background-size: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ig {
+  background-image: url("../resources/images/weapon_icons/Insect_Glaive_Icon_White.webp");
+  background-size: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bow {
+  background-image: url("../resources/images/weapon_icons/Bow_Icon_White.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.lbg {
+  background-image: url("../resources/images/weapon_icons/Light_Bowgun_Icon_White.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
