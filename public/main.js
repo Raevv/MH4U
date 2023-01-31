@@ -7,6 +7,10 @@ window.onscroll = function() {
 if (document.body.classList.contains('index')) {
     const downArrow = document.querySelector('.arrow');
     downArrow.addEventListener('mouseenter', scrollPreview);
+    window.onload = function () {
+        arrow();
+        topBtn();
+    }
 
     function scrollPreview() {
         const htmlElement = document.querySelector('html');
@@ -186,7 +190,9 @@ if (document.body.classList.contains('relic-page')) {
     const gs = document.querySelector('.gs');
     window.onload = function() {
         gs.classList.add('selected');
+        setTitles();
     }
+
     let weapons = ['Great Sword', 'Long Sword', 'Sword and Shield', 'Dual blades', 'Hammer', 'Hunting Horn', 'Lance', 'Gunlance', 'Switch Axe', 'Charge Blade', 'Insect Glaive', 'Bow', 'Light Bowgun'];
 
     let icons = document.querySelectorAll('.weapon');
@@ -213,12 +219,17 @@ if (document.body.classList.contains('relic-page')) {
                 e.target.classList.add('selected');
                 e.target.style.setProperty('cursor', 'url("../resources/cursors/mhw_cursor.cur"), auto');
                 e.target.style.setProperty('margin-top', '0');
-                console.log('Class "selected" added to ' + weapons[i]);
+                console.log(weapons[i] + ' selected');
             } else {
                 console.log(weapons[i] + ' is already selected');
             }
         })
     }
     
+    function setTitles() {
+        for (let i = 0; i < icons.length; i++) {
+            icons[i].title = weapons[i];            
+        }
+    }
     
 }
