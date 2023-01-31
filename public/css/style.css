@@ -141,45 +141,62 @@ section p {
 .slider {
   cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
   background: hsl(12deg, 15%, 25%);
-  height: 15px;
-  width: 392px;
+  height: 125px;
+  width: 15px;
+  margin-left: 10px;
   appearance: none;
   -webkit-appearance: none;
   position: relative;
-  z-index: 10;
-  --step: 0;
+  z-index: 1;
+  -webkit-appearance: slider-vertical;
+  --pos: ;
+  --color: ;
+  --step: ;
 }
 .slider::before {
   content: "";
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
+  width: 15px;
+  height: var(--step);
+  background-color: var(--color);
+  transition: background-color 0.2s ease;
+}
+.slider::after {
+  content: "";
+  position: absolute;
+  bottom: var(--pos);
+  left: -2px;
+  width: 15px;
   height: 15px;
-  width: var(--step);
-  background: red;
+  background: white;
+  border: 2px solid hsl(9deg, 23%, 5%);
+  border-radius: 2px;
 }
 .slider::-moz-range-thumb {
   border-radius: 2px;
   height: 15px;
   width: 15px;
-  border: 3px solid hsl(9deg, 23%, 5%);
+  border: 2px solid hsl(9deg, 23%, 5%);
 }
 .slider::-moz-range-progress {
-  background: red;
-  height: 100%;
+  background: var(--color);
+  width: 100%;
+  transition: all 0.2s ease;
 }
 .slider::-webkit-slider-runnable-track {
-  height: 15px;
+  width: 15px;
   background-color: hsl(12deg, 15%, 25%);
 }
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   border-radius: 2px;
   background: white;
-  margin-top: -3px;
+  margin-left: -3px;
   height: 20px;
   width: 20px;
-  border: 3px solid hsl(9deg, 23%, 5%);
+  border: 2px solid hsl(9deg, 23%, 5%);
 }
 
 html {
@@ -724,10 +741,11 @@ body::before {
   display: flex;
   flex-direction: row;
   width: 830px;
-  height: 50px;
+  height: 49.3px;
   margin: 0;
   margin-bottom: 10px;
   gap: 10px;
+  z-index: 1;
 }
 .weapon-select div {
   height: 100%;
@@ -736,14 +754,99 @@ body::before {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.66);
   transition: all 0.2s ease;
 }
+.weapon-select .other {
+  display: grid;
+  place-items: center;
+}
+.weapon-select .other span {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+}
+.weapon-select .other span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+}
+.weapon-select .other span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: white;
+}
 
 .main-window {
   display: grid;
-  margin: 0;
   height: 500px;
+  grid-template-columns: 40% 40%;
+  justify-items: start;
+  align-content: start;
+  justify-content: space-around;
   aspect-ratio: 1.66/1;
   background: hsl(12deg, 15%, 15%);
   border-radius: 1px;
+  z-index: 2;
+}
+.main-window .weapon-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-start;
+  width: 100%;
+  height: max-content;
+  margin-top: 10%;
+}
+.main-window .weapon-wrapper .weapon-preview {
+  width: 125px;
+  height: 125px;
+  background: hsl(12deg, 15%, 25%);
+  border-radius: 2px;
+}
+.main-window .weapon-wrapper .weapon-preview:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+.main-window .colors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 125px;
+  height: 20px;
+  grid-column: 1;
+  margin-top: 10px;
+}
+.main-window .colors div {
+  height: 20px;
+  width: 20px;
+  transition: all 0.2s ease;
+}
+.main-window .colors div:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+.main-window .colors .red {
+  background-color: hsl(0deg, 75%, 50%);
+}
+.main-window .colors .yellow {
+  background-color: hsl(50deg, 75%, 50%);
+}
+.main-window .colors .green {
+  background-color: hsl(115deg, 75%, 50%);
+}
+.main-window .colors .blue {
+  background-color: hsl(245deg, 75%, 50%);
+}
+.main-window .colors .purple {
+  background-color: hsl(290deg, 75%, 50%);
 }
 
 .selected {
@@ -752,14 +855,9 @@ body::before {
   background-color: hsl(12deg, 15%, 15%) !important;
   position: relative;
 }
-.selected::after {
-  content: "";
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background-color: hsl(12deg, 15%, 15%);
+
+.selected-color {
+  box-shadow: inset 0px 0px 0px 2px white, inset 0px 0px 3px 2px black;
 }
 
 .gs {
@@ -848,6 +946,13 @@ body::before {
 
 .lbg {
   background-image: url("../resources/images/weapon_icons/Light_Bowgun_Icon_White.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hbg {
+  background-image: url("../resources/images/weapon_icons/Heavy_Bowgun_Icon_White.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

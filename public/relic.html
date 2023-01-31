@@ -35,8 +35,21 @@
         <div class="weapon ig"></div>
         <div class="weapon bow"></div>
         <div class="weapon lbg"></div>
+        <div class="weapon hbg"></div>
     </div>
-    <div class="main-window"></div>
+    <div class="main-window">
+      <div class="weapon-wrapper">
+        <div class="weapon-preview"></div>
+        <input orient="vertical" onmousedown="holdClick()" onmouseup="releaseClick()" class="slider" type="range" id="rawAffDef" name="rawAffDef" min="0" max="21" step="1">
+      </div>
+      <div class="colors">
+        <div class="color red" title="Red"></div>
+        <div class="color yellow" title="Yellow"></div>
+        <div class="color green" title="Green"></div>
+        <div class="color blue" title="Blue"></div>
+        <div class="color purple" title="Purple"></div>
+      </div>
+    </div>
 
     <script src="./main.js"></script>
 </body>

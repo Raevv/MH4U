@@ -1,5 +1,6 @@
 @use "../abstracts/colors";
 @use "../abstracts/assets";
+@use "../components/slider";
 
 .relic-page {
     display: flex;
@@ -14,10 +15,11 @@
     display: flex;
     flex-direction: row;
     width: calc(500px * 1.66);
-    height: 50px;
+    height: 49.3px;
     margin: 0;
     margin-bottom: 10px;
     gap: 10px;
+    z-index: 1;
     
     div {
         height: 100%;
@@ -26,15 +28,117 @@
         box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.66);
         transition: all 0.2s ease;
     }
+
+    .other {
+        display: grid;
+        place-items: center;
+
+        span {
+            position: relative;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+            pointer-events: none;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -12px;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: white;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 12px;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: white;
+            }
+        }
+    }
+
 }
 
 .main-window {
     display: grid;
-    margin: 0;
     height: 500px;
+    grid-template-columns: 40% 40%;
+    justify-items: start;
+    align-content: start;
+    justify-content: space-around;
     aspect-ratio: 1.66/1;
     background: colors.$brown;
     border-radius: 1px;
+    z-index: 2;
+
+    .weapon-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-items: flex-start;
+        width: 100%;
+        height: max-content;
+        margin-top: 10%;
+
+        .weapon-preview {
+            width: 125px;
+            height: 125px;
+            background: colors.$light-brown;
+            border-radius: 2px;
+    
+            &:hover {
+                cursor: assets.$pointer;
+            }
+        }
+    }
+
+    .colors {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 125px;
+        height: 20px;
+        grid-column: 1;
+        margin-top: 10px;
+
+        div {
+            height: 20px;
+            width: 20px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                cursor: assets.$pointer;
+            }
+        }
+
+        .red {
+            background-color: colors.$red;
+        }
+
+        .yellow {
+            background-color: colors.$yellow;
+        }
+
+        .green {
+            background-color: colors.$green;
+        }
+
+        .blue {
+            background-color: colors.$blue;
+        }
+
+        .purple {
+            background-color: colors.$purple;
+        }
+
+    }
 }
 
 // Classes
@@ -44,16 +148,10 @@
     aspect-ratio: 1/1 !important;
     background-color: colors.$brown !important;
     position: relative;
+}
 
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: -20px;
-        left: 0;
-        width: 100%;
-        height: 20px;
-        background-color: colors.$brown;
-    }
+.selected-color {
+    box-shadow: inset 0px 0px 0px 2px white, inset 0px 0px 3px 2px black;
 }
 
 .gs {
@@ -140,6 +238,13 @@
 
 .lbg {
     background-image: assets.$lbg;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hbg {
+    background-image: assets.$hbg;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

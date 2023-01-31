@@ -161,39 +161,25 @@ function open_menu() {
 }
 
 if (document.body.classList.contains('test')) {
-    const slider = document.querySelector('.slider');
-    window.onload = function() {
-        slider.value = 0;
-    }
-    var mouseDown = false;
-    function holdClick() {
-        if (!mouseDown) {
-            mouseDown = true;
-            let myInterval = setInterval(step, 100);
-        } 
-    }
-
-    function releaseClick() {
-        if (mouseDown) {
-            mouseDown = false;
-            console.log(slider.value);
-        }
-    }
-
-    function step() {
-        slider.style.setProperty('--step', (392 / 21 * slider.value) - (17 / 19 * slider.value) + "px");
-    }
+    
 
 }
 
 if (document.body.classList.contains('relic-page')) {
+    const slider = document.querySelector('.slider');
     const gs = document.querySelector('.gs');
+    const red = document.querySelector('.colors .red');
     window.onload = function() {
+        slider.value = 0;
+        slider.style.setProperty('--color', 'hsl(0, 75%, 50%)')
         gs.classList.add('selected');
+        red.classList.add('selected-color');
         setTitles();
     }
 
-    let weapons = ['Great Sword', 'Long Sword', 'Sword and Shield', 'Dual blades', 'Hammer', 'Hunting Horn', 'Lance', 'Gunlance', 'Switch Axe', 'Charge Blade', 'Insect Glaive', 'Bow', 'Light Bowgun'];
+    //========= Top icons code =========
+
+    let weapons = ['Great Sword', 'Long Sword', 'Sword and Shield', 'Dual blades', 'Hammer', 'Hunting Horn', 'Lance', 'Gunlance', 'Switch Axe', 'Charge Blade', 'Insect Glaive', 'Bow', 'Light Bowgun', 'Heavy Bowgun'];
 
     let icons = document.querySelectorAll('.weapon');
     for (let i = 0; i < icons.length; i++) {
@@ -225,11 +211,57 @@ if (document.body.classList.contains('relic-page')) {
             }
         })
     }
-    
+
     function setTitles() {
         for (let i = 0; i < icons.length; i++) {
             icons[i].title = weapons[i];            
         }
     }
-    
+
+    //========= Color selection code ==========
+
+    let colors = document.querySelectorAll('.color');
+    for (let i = 0; i < colors.length; i++) {
+        colors[i].addEventListener('click', e => {
+            const selectedColor = document.querySelector('.selected-color');
+            if (!e.target.classList.contains('selected-color')) {
+                selectedColor.classList.remove('selected-color');
+                e.target.classList.add('selected-color');
+            }
+
+            if (e.target.classList.contains('red')) {
+                slider.style.setProperty('--color', 'hsl(0, 75%, 50%)');
+            } else if (e.target.classList.contains('yellow')) {
+                slider.style.setProperty('--color', 'hsl(50, 75%, 50%)');
+            } else if (e.target.classList.contains('green')) {
+                slider.style.setProperty('--color', 'hsl(115, 75%, 50%)');
+            } else if (e.target.classList.contains('blue')) {
+                slider.style.setProperty('--color', 'hsl(245, 75%, 50%)');
+            } else if (e.target.classList.contains('purple')) {
+                slider.style.setProperty('--color', 'hsl(290, 75%, 50%)');
+            }
+        })
+    }
+
+    //========= Slider code =========
+
+    var mouseDown = false;
+    function holdClick() {
+        if (!mouseDown) {
+            mouseDown = true;
+            let myInterval = setInterval(step, 100);
+        } 
+    }
+
+    function releaseClick() {
+        if (mouseDown) {
+            mouseDown = false;
+            console.log(slider.value);
+        }
+    }
+
+    function step() {
+        slider.style.setProperty('--step', (125 / 21 * slider.value) - (17 / 19 * slider.value) + "px");
+        slider.style.setProperty('--pos', (125 / 21 * slider.value) - (17 / 19 * slider.value) + "px");
+    }
 }

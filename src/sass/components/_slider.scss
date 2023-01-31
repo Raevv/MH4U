@@ -4,23 +4,40 @@
 .slider {
     cursor: assets.$pointer;
     background: colors.$light-brown;
-    height: 15px;
-    width: 392px;
+    height: 125px;
+    width: 15px;
+    margin-left: 10px;
     appearance: none;
     -webkit-appearance: none;
     position: relative;
-    z-index: 10;
+    z-index: 1;
+    -webkit-appearance: slider-vertical;
 
-    --step: 0;
+    --pos: ;
+    --color: ;
+    --step: ;
 
     &::before {
         content: '';
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
+        width: 15px;
+        height: var(--step);
+        background-color: var(--color);
+        transition: background-color 0.2s ease;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: var(--pos);
+        left: -2px;
+        width: 15px;
         height: 15px;
-        width: var(--step);
-        background: red;
+        background: white;
+        border: 2px solid colors.$dark-brown;
+        border-radius: 2px;
     }
 
     // Mozilla slider
@@ -28,17 +45,18 @@
         border-radius: 2px;
         height: 15px;
         width: 15px;
-        border: 3px solid colors.$dark-brown;
+        border: 2px solid colors.$dark-brown;
     }
 
     &::-moz-range-progress {
-        background: red;
-        height: 100%;
+        background: var(--color);
+        width: 100%;
+        transition: all 0.2s ease;
     }
 
     // Chrome slider
     &::-webkit-slider-runnable-track {
-        height: 15px;
+        width: 15px;
         background-color: colors.$light-brown;
     }
 
@@ -46,9 +64,9 @@
         -webkit-appearance: none;
         border-radius: 2px; 
         background: white;
-        margin-top: -3px;
+        margin-left: -3px;
         height: 20px;
         width: 20px;
-        border: 3px solid colors.$dark-brown;
+        border: 2px solid colors.$dark-brown;
     }
 }
