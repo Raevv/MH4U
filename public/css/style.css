@@ -202,19 +202,19 @@ section p {
 input[type=checkbox] {
   appearance: none;
   -webkit-appearance: none;
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 20px;
+  height: 20px;
   align-self: center;
   border-radius: 1px;
   background-color: hsl(12deg, 15%, 25%);
 }
-input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense], [name=Life]):checked {
+input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense], [name=Life], [name=Attach]):checked {
   position: relative;
   background-color: hsl(12deg, 15%, 25%);
   transition: all 0.2s ease;
   box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.33);
 }
-input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense], [name=Life]):checked::before {
+input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense], [name=Life], [name=Attach])::before {
   content: "";
   position: absolute;
   top: 0;
@@ -230,12 +230,12 @@ input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense],
   animation-timing-function: ease;
   animation-fill-mode: forwards;
 }
-input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense], [name=Life]):not(:checked) {
+input[type=checkbox]:not(:checked) {
   position: relative;
   background-color: hsl(12deg, 15%, 25%);
   transition: all 0.2s ease;
 }
-input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense], [name=Life]):not(:checked)::before {
+input[type=checkbox]:not(:checked)::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1020,6 +1020,63 @@ body::before {
 }
 .main-window .element input[type=checkbox][name=Dragon] {
   background-image: url("../resources/images/element_icons/dragon_icon.webp");
+}
+.main-window .slots {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+  width: 100%;
+  height: 150px;
+  margin-top: 15px;
+}
+.main-window .slots > span {
+  font-family: "Rubik";
+  font-style: italic;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: -20px;
+}
+.main-window .slots .slot {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.main-window .slots .slot input {
+  margin-left: 15px;
+}
+.main-window .slots .slot select {
+  width: 75%;
+  padding-left: 10px;
+  height: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-family: "Rubik";
+  font-weight: 400;
+  background-color: hsl(12deg, 15%, 25%);
+  outline: none;
+  border: none;
+  border-radius: 2px;
+}
+.main-window .slots .slot select:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+.main-window .slots .slot select option {
+  font-size: 0.8rem;
+  font-family: "Rubik";
+  font-weight: 400;
+  background-color: hsl(12deg, 15%, 25%);
+}
+.main-window .slots .slot select option:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+.main-window .slots .slot span {
+  font-family: "Rubik";
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-style: normal;
+  margin-left: 5px;
 }
 
 .checkboxes {

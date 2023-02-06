@@ -283,6 +283,72 @@
             }
         }
     }
+
+    .slots {
+        grid-column: 1;
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        justify-content: space-between;
+        width: 100%;
+        height: 150px;
+        margin-top: 15px;
+        
+        &>span {
+            font-family: 'Rubik';
+            font-style: italic;
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: -20px;
+        }
+
+        .slot {
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+            input {
+                margin-left: 15px;
+            }
+
+            select {
+                width: 75%;
+                padding-left: 10px;
+                height: 1.2rem;
+                color: rgba($color: #ffffff, $alpha: 0.8);
+                font-size: 0.8rem;
+                font-family: 'Rubik';
+                font-weight: 400;
+                background-color: colors.$light-brown;
+                outline: none;
+                border: none;
+                border-radius: 2px;
+
+                &:hover {
+                    cursor: assets.$pointer;
+                }
+                
+                option {
+                    font-size: 0.8rem;
+                    font-family: 'Rubik';
+                    font-weight: 400;
+                    background-color: colors.$light-brown;
+
+                    &:hover {
+                        cursor: assets.$pointer;
+                    }
+                }
+            }
+
+            span {
+                font-family: 'Rubik';
+                font-size: 0.9rem;
+                font-weight: 300;
+                font-style: normal;
+                margin-left: 5px;
+            }
+        }
+    }
 }
 
 .checkboxes {
