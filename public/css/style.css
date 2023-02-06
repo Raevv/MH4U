@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&family=Roboto+Condensed&family=Rubik:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&family=Roboto+Condensed&family=Rubik:wght@200;300;400;500&display=swap");
 @font-face {
   font-family: "MHFont";
   src: url("../resources/fonts/MHFont.ttf");
@@ -197,6 +197,62 @@ section p {
   height: 20px;
   width: 20px;
   border: 2px solid hsl(9deg, 23%, 5%);
+}
+
+input[type=checkbox] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 0.8rem;
+  height: 0.8rem;
+  align-self: center;
+  border-radius: 1px;
+  background-color: hsl(12deg, 15%, 25%);
+}
+input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense], [name=Life]):checked {
+  position: relative;
+  background-color: hsl(12deg, 15%, 25%);
+  transition: all 0.2s ease;
+  box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.33);
+}
+input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense], [name=Life]):checked::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../resources/images/cross_icon.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation-name: checked;
+  animation-duration: 0.2s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense], [name=Life]):not(:checked) {
+  position: relative;
+  background-color: hsl(12deg, 15%, 25%);
+  transition: all 0.2s ease;
+}
+input[type=checkbox]:is([name=Rust], [name=Glow], [name=Attack], [name=Defense], [name=Life]):not(:checked)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../resources/images/cross_icon.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation-name: unchecked;
+  animation-duration: 0.2s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+input[type=checkbox]:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
 }
 
 html {
@@ -575,7 +631,7 @@ body::before {
   color: hsl(51deg, 100%, 50%);
   cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
 }
-.register-form input, .log-in-form input {
+.register-form .usr, .register-form .nick, .register-form .pass, .register-form .conf-pass, .log-in-form .usr, .log-in-form .nick, .log-in-form .pass, .log-in-form .conf-pass {
   background: hsl(9deg, 23%, 5%);
   color: white;
   border: none;
@@ -804,7 +860,7 @@ body::before {
   flex-direction: row;
   justify-items: flex-start;
   width: 100%;
-  height: max-content;
+  height: 125px;
   margin-top: 10%;
 }
 .main-window .weapon-wrapper .weapon-preview {
@@ -815,6 +871,45 @@ body::before {
 }
 .main-window .weapon-wrapper .weapon-preview:hover {
   cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+.main-window .weapon-wrapper .stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 50%;
+  height: 100%;
+  margin-top: 5px;
+}
+.main-window .weapon-wrapper .stats .relic-name {
+  position: relative;
+  width: 90%;
+  align-self: flex-end;
+  background: none;
+  border: none;
+  border-bottom: 2px solid hsl(12deg, 15%, 25%);
+  outline: none;
+  padding: 0.2rem;
+  font-family: "Rubik";
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: -5px;
+}
+.main-window .weapon-wrapper .stats .relic-name::placeholder {
+  font-family: "Rubik";
+  font-size: 0.85rem;
+  font-style: italic;
+  color: hsl(12deg, 15%, 25%);
+}
+.main-window .weapon-wrapper .stats p {
+  font-family: "Rubik";
+  font-weight: 400;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-left: 10px;
+}
+.main-window .weapon-wrapper .stats p:first-of-type {
+  margin-top: 5px;
 }
 .main-window .colors {
   display: flex;
@@ -848,9 +943,105 @@ body::before {
 .main-window .colors .purple {
   background-color: hsl(290deg, 75%, 50%);
 }
+.main-window .rust-glow {
+  grid-column: 1;
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+}
+.main-window .rust-glow input[type=checkbox]:last-of-type {
+  margin-left: 10px;
+}
+.main-window .rust-glow span {
+  font-family: "Rubik";
+  font-weight: 300;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+.main-window .hone {
+  grid-column: 1;
+  display: grid;
+  width: 100%;
+  grid-template-columns: min-content 1fr;
+  margin-top: 15px;
+}
+.main-window .hone .hone-text {
+  width: max-content;
+  font-family: "Rubik";
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 400;
+  grid-column: 1;
+}
+.main-window .element {
+  grid-column: 1;
+  display: grid;
+  width: 100%;
+  grid-template-columns: min-content 1fr;
+  margin-top: 15px;
+}
+.main-window .element .element-text {
+  width: max-content;
+  font-family: "Rubik";
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 400;
+  grid-column: 1;
+}
+.main-window .element input[type=checkbox] {
+  width: 25px;
+  height: 25px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main-window .element input[type=checkbox]:checked {
+  outline: 2px solid white;
+}
+.main-window .element input[type=checkbox]:checked::before {
+  content: "";
+  background: none;
+}
+.main-window .element input[type=checkbox]:not(:checked)::before {
+  content: "";
+  background: none;
+}
+.main-window .element input[type=checkbox][name=Fire] {
+  background-image: url("../resources/images/element_icons/fire_icon.webp");
+}
+.main-window .element input[type=checkbox][name=Water] {
+  background-image: url("../resources/images/element_icons/water_icon.webp");
+}
+.main-window .element input[type=checkbox][name=Ice] {
+  background-image: url("../resources/images/element_icons/ice_icon.webp");
+}
+.main-window .element input[type=checkbox][name=Thunder] {
+  background-image: url("../resources/images/element_icons/thunder_icon.webp");
+}
+.main-window .element input[type=checkbox][name=Dragon] {
+  background-image: url("../resources/images/element_icons/dragon_icon.webp");
+}
+
+.checkboxes {
+  grid-column: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+.checkboxes .check {
+  display: flex;
+}
+.checkboxes .check span {
+  font-family: "Rubik";
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-style: normal;
+  margin-left: 5px;
+}
 
 .selected {
-  height: 120% !important;
+  height: 121% !important;
   aspect-ratio: 1/1 !important;
   background-color: hsl(12deg, 15%, 15%) !important;
   position: relative;
@@ -956,4 +1147,21 @@ body::before {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+@keyframes checked {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes unchecked {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

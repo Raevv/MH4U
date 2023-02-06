@@ -171,7 +171,8 @@ if (document.body.classList.contains('relic-page')) {
     const red = document.querySelector('.colors .red');
     window.onload = function() {
         slider.value = 0;
-        slider.style.setProperty('--color', 'hsl(0, 75%, 50%)')
+        slider.style.setProperty('--color', 'hsl(0, 75%, 50%)');
+        slider.style.setProperty('--pos', '0');
         gs.classList.add('selected');
         red.classList.add('selected-color');
         setTitles();
@@ -263,5 +264,20 @@ if (document.body.classList.contains('relic-page')) {
     function step() {
         slider.style.setProperty('--step', (125 / 21 * slider.value) - (17 / 19 * slider.value) + "px");
         slider.style.setProperty('--pos', (125 / 21 * slider.value) - (17 / 19 * slider.value) + "px");
+    }
+
+    //=========== Elements code =============
+
+    let elementChoice = document.querySelectorAll('.element-choice');
+    let elementList = [];
+    for (let i = 0; i < elementChoice.length; i++) {
+        elementList.push(elementChoice[i].name);
+        elementChoice[i].addEventListener('click', e => {
+            if (e.target.checked == true) {
+                console.log('checked ' + e.target.name);
+            } else {
+                console.log('unchecked ' + e.target.name);
+            }
+        })
     }
 }

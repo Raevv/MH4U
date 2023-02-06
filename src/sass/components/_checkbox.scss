@@ -1,0 +1,65 @@
+@use '../abstracts/colors';
+@use '../abstracts/assets';
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 0.8rem;
+    height: 0.8rem;
+    align-self: center;
+    border-radius: 1px;
+    background-color: colors.$light-brown;
+
+    &:is([name="Rust"], [name="Glow"], [name="Attack"], [name="Defense"], [name="Life"]) {
+        &:checked {
+        position: relative;
+        background-color: colors.$light-brown;
+        transition: all 0.2s ease;
+        box-shadow: inset 0px 0px 2px 2px rgba($color: #000000, $alpha: 0.33);
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: assets.$cross;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-name: checked;
+            animation-duration: 0.2s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    &:not(:checked) {
+        position: relative;
+        background-color: colors.$light-brown;
+        transition: all 0.2s ease;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: assets.$cross;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            animation-name: unchecked;
+            animation-duration: 0.2s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+        }
+    }
+    }
+
+    &:hover {
+        cursor: assets.$pointer;
+    }
+}

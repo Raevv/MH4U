@@ -41,6 +41,13 @@
       <div class="weapon-wrapper">
         <div class="weapon-preview"></div>
         <input orient="vertical" onmousedown="holdClick()" onmouseup="releaseClick()" class="slider" type="range" id="rawAffDef" name="rawAffDef" min="0" max="21" step="1">
+        <div class="stats">
+          <input type="text" placeholder="RELIC FILE NAME" name="relic-name" class="relic-name">
+          <p>Attack : </p>
+          <p>Affinity : </p>
+          <p>Defense : </p>
+          <p>Raw Damage : </p>
+        </div>
       </div>
       <div class="colors">
         <div class="color red" title="Red"></div>
@@ -48,6 +55,28 @@
         <div class="color green" title="Green"></div>
         <div class="color blue" title="Blue"></div>
         <div class="color purple" title="Purple"></div>
+      </div>
+      <div class="rust-glow">
+        <input type="checkbox" name="Rust"><span>Rust</span>
+        <input type="checkbox" name="Glow"><span>Glow</span>
+      </div>
+      <div class="hone">
+        <span class="hone-text">Hone :</span>
+        <div class="checkboxes">
+          <div class="check"><input class="hone-choice" type="checkbox" name="Attack"><span>Attack</span></div>
+          <div class="check"><input class="hone-choice" type="checkbox" name="Defense"><span>Defense</span></div>
+          <div class="check"><input class="hone-choice" type="checkbox" name="Life"><span>Life</span></div>
+        </div>
+      </div>
+      <div class="element">
+        <span class="element-text">Element :</span>
+        <div class="checkboxes">
+          <input class="element-choice" type="checkbox" name="Fire" title="Fire">
+          <input class="element-choice" type="checkbox" name="Water" title="Water">
+          <input class="element-choice" type="checkbox" name="Ice" title="Ice">
+          <input class="element-choice" type="checkbox" name="Thunder" title="Thunder">
+          <input class="element-choice" type="checkbox" name="Dragon" title="Dragon">
+        </div>
       </div>
     </div>
 

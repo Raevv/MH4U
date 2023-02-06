@@ -110,7 +110,7 @@
         }
     }
 
-    input {
+    .usr, .nick, .pass, .conf-pass {
         background: colors.$dark-brown;
         color: white;
         border: none;
