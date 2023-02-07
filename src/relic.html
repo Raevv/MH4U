@@ -38,8 +38,17 @@
         <div class="weapon hbg"></div>
     </div>
     <div class="main-window">
+      <!-- First column start -->
       <div class="weapon-wrapper">
-        <div class="weapon-preview"></div>
+        <div class="weapon-preview">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <input orient="vertical" onmousedown="holdClick()" onmouseup="releaseClick()" class="slider" type="range" id="rawAffDef" name="rawAffDef" min="0" max="21" step="1">
         <div class="stats">
           <input type="text" placeholder="RELIC FILE NAME" name="relic-name" class="relic-name">
@@ -82,7 +91,7 @@
         <span>Slots</span>
         <div class="slot 1">
           <select name="">
-            <option value="0">Option number 1</option>
+            <option value="0">Empty</option>
             <option value="1">Option number 2</option>
             <option value="2">Option number 3</option>
             <option value="3">Option number 4</option>
@@ -92,7 +101,7 @@
         </div>
         <div class="slot 2">
           <select name="" id="">
-            <option value="0">Option number 1</option>
+            <option value="0">Empty</option>
             <option value="1">Option number 2</option>
             <option value="2">Option number 3</option>
             <option value="3">Option number 4</option>
@@ -102,7 +111,7 @@
         </div>
         <div class="slot 3">
           <select name="" id="">
-            <option value="0">Option number 1</option>
+            <option value="0">Empty</option>
             <option value="1">Option number 2</option>
             <option value="2">Option number 3</option>
             <option value="3">Option number 4</option>
@@ -111,6 +120,29 @@
           <input type="checkbox" name="Attach"><span>Attach</span>
         </div>
       </div>
+      <!-- First column end -->
+      <!-- Second column start -->
+      <div class="sharpness">
+        <span>Sharpness</span>
+        <select name="sharpness">
+          <option value="0">Option number 1</option>
+          <option value="1">Option number 2</option>
+          <option value="2">Option number 3</option>
+          <option value="3">Option number 4</option>
+          <option value="4">Option number 5</option>
+        </select>
+      </div>
+      <div class="bonus">
+        <span>Bonus</span>
+        <select name="sharpness">
+          <option value="0">Option number 1</option>
+          <option value="1">Option number 2</option>
+          <option value="2">Option number 3</option>
+          <option value="3">Option number 4</option>
+          <option value="4">Option number 5</option>
+        </select>
+      </div>
+      <div class="generate">Generate</div>
     </div>
 
     <script src="./main.js"></script>

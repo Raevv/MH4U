@@ -160,11 +160,6 @@ function open_menu() {
         }
 }
 
-if (document.body.classList.contains('test')) {
-    
-
-}
-
 if (document.body.classList.contains('relic-page')) {
     const slider = document.querySelector('.slider');
     const gs = document.querySelector('.gs');
@@ -218,6 +213,21 @@ if (document.body.classList.contains('relic-page')) {
             icons[i].title = weapons[i];            
         }
     }
+
+    //========= Weapon selection code ==========
+    let weaponSelect = document.querySelector('.weapon-preview');
+    weaponSelect.addEventListener('click', e => {
+        weaponSelect.classList.add('expand');
+        if (e.target !== weaponSelect) {
+            weaponSelect.classList.remove('expand');
+        }
+    })
+
+    document.body.addEventListener('click', e => {
+        if (e.target !== weaponSelect) {
+            weaponSelect.classList.remove('expand');
+        }
+    })
 
     //========= Color selection code ==========
 
@@ -280,4 +290,5 @@ if (document.body.classList.contains('relic-page')) {
             }
         })
     }
+    
 }

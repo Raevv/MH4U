@@ -143,7 +143,7 @@ section p {
   background: hsl(12deg, 15%, 25%);
   height: 125px;
   width: 15px;
-  margin-left: 10px;
+  margin-left: 135px;
   appearance: none;
   -webkit-appearance: none;
   position: relative;
@@ -864,10 +864,14 @@ body::before {
   margin-top: 10%;
 }
 .main-window .weapon-wrapper .weapon-preview {
+  position: absolute;
   width: 125px;
   height: 125px;
+  overflow: hidden;
   background: hsl(12deg, 15%, 25%);
   border-radius: 2px;
+  z-index: 2;
+  transition: all 0.2s ease;
 }
 .main-window .weapon-wrapper .weapon-preview:hover {
   cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
@@ -910,6 +914,9 @@ body::before {
 }
 .main-window .weapon-wrapper .stats p:first-of-type {
   margin-top: 5px;
+}
+.main-window .weapon-wrapper .stats p:last-of-type {
+  margin-bottom: 2px;
 }
 .main-window .colors {
   display: flex;
@@ -1046,10 +1053,13 @@ body::before {
 .main-window .slots .slot input {
   margin-left: 15px;
 }
+.main-window .slots .slot input:disabled:hover {
+  cursor: not-allowed;
+}
 .main-window .slots .slot select {
   width: 75%;
   padding-left: 10px;
-  height: 1.2rem;
+  height: 1.3rem;
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.8rem;
   font-family: "Rubik";
@@ -1078,6 +1088,110 @@ body::before {
   font-style: normal;
   margin-left: 5px;
 }
+.main-window .sharpness {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: max-content;
+}
+.main-window .sharpness > span {
+  font-family: "Rubik";
+  font-style: italic;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.main-window .sharpness select {
+  width: 100%;
+  padding-left: 10px;
+  height: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-family: "Rubik";
+  font-weight: 400;
+  background-color: hsl(12deg, 15%, 25%);
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+.main-window .sharpness select:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+.main-window .sharpness select option {
+  font-size: 0.8rem;
+  font-family: "Rubik";
+  font-weight: 400;
+  background-color: hsl(12deg, 15%, 25%);
+}
+.main-window .sharpness select option:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+.main-window .bonus {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 30%;
+}
+.main-window .bonus > span {
+  font-family: "Rubik";
+  font-style: italic;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.main-window .bonus select {
+  width: 100%;
+  padding-left: 10px;
+  height: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-family: "Rubik";
+  font-weight: 400;
+  background-color: hsl(12deg, 15%, 25%);
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+.main-window .bonus select:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+.main-window .bonus select option {
+  font-size: 0.8rem;
+  font-family: "Rubik";
+  font-weight: 400;
+  background-color: hsl(12deg, 15%, 25%);
+}
+.main-window .bonus select option:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+.main-window .generate {
+  grid-column: 2;
+  grid-row: 6;
+  justify-self: end;
+  align-self: end;
+  background-color: hsl(12deg, 15%, 25%);
+  font-family: "Rubik";
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  padding: 1rem 2rem;
+  margin: 0px 20px 20px 0;
+  border-radius: 2px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.66);
+  transition: all 0.1s ease;
+}
+.main-window .generate:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+.main-window .generate:active {
+  transform: scale(0.99);
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.66);
+}
 
 .checkboxes {
   grid-column: 2;
@@ -1095,6 +1209,31 @@ body::before {
   font-weight: 300;
   font-style: normal;
   margin-left: 5px;
+}
+
+.expand {
+  width: 750px !important;
+  height: 435px !important;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.33);
+}
+.expand:hover {
+  cursor: url("../resources/cursors/mhw_cursor.cur"), auto !important;
+}
+.expand div {
+  width: 125px;
+  height: 125px;
+  background-color: hsl(12deg, 15%, 35%);
+}
+.expand div:hover {
+  cursor: url("../resources/cursors/mhw_pointer.cur"), pointer;
+}
+
+.disabled {
+  color: rgba(255, 255, 255, 0.2);
 }
 
 .selected {
